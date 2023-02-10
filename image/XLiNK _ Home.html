@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://127.0.0.1:8080/create/create.html/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./XLiNK _ Home_files/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="./XLiNK _ Home_files/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="./XLiNK _ Home_files/font-awesome.min.css" rel="stylesheet">
+    <title>XLiNK | Home</title>
+    <style>
+
+.head{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    background: white;
+    width: 1700px;
+    height: 110px;
+}
+.headline{
+    position: flex;
+    z-index: 1;
+    background-size:cover;
+    background: black; 
+    border-radius: 10px;
+    padding: 0.5px;
+    font-size: 46px;
+    width: 180px;
+    height: 70px;
+    margin-top: 10px; 
+    margin-left: 20px;
+}
+.x{
+    position: relative;
+    color: rgb(78, 17, 247);
+    left: 15px;
+    top: 5px;
+}
+.link{
+    position: relative;
+    color: white;
+    left: 15px;
+    top: 5px;
+}
+.word{
+    position: relative;
+    margin-left: 40px;
+    margin-top: 8px;
+    font-size: 10px;
+}
+.search_container{
+    box-sizing: border-box;
+    margin: 5px;
+    /* border-radius: 10px; */
+    margin-top: 15px;
+  }
+  .search_container input[type="text"]{
+    border-radius: 10px;
+    background: #d7d7d7;
+    color: rgb(11, 11, 11);
+    border: none;
+    height: 35px;
+  }
+  .search_container input[type="text"]:focus {
+    color: rgb(8, 8, 8);
+    outline: 0;
+  }
+  .search_container input[type="submit"]{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    font-family: FontAwesome;
+    border: none;
+    background: #050505;
+    color: rgb(255, 255, 255);
+    outline : none;
+    width: 2.7em;
+    height: 37px;
+  }
+
+.v_line_left {
+    border-left: thick solid red;
+    padding-left: 10px;
+}
+.border_1{
+    border:solid 3px rgb(241, 240, 240);
+    border-radius: 10px;
+    width: 240px;
+    height: 40px;
+}
+.account{
+    position: relative;
+    padding:0;
+    margin-top: -25px;
+}
+.border_2{
+    border:solid 3px rgb(241, 240, 240);
+    border-radius: 10px;
+    width: 240px;
+    height: 40px;
+}
+.home{
+    position: relative;
+    margin-top: -25px;
+    padding: 0;
+}
+.main_bord2{
+    position: fixed;
+    z-index: 1;
+    border:solid 3px rgb(255, 255, 255);
+    margin: 0;
+    left: 0px;
+    top: 106.25px;
+    background: rgb(241, 240, 240);;
+    width: 350px;
+    height: 850px;
+} 
+.div-bord{
+    position: relative;
+    margin-left: 500px;
+    top: 210px;
+}
+.header{
+    background: white;
+    margin:-5px;
+    padding:0;
+}
+.tab-planel{
+    top: 0px;
+    margin-left: 400px;
+
+}
+.tab-group{
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    color: black;
+  }
+  .tab{
+    flex-grow: 1;
+    padding:5px;
+    list-style:none;
+    border:solid 0.5px rgb(241, 240, 240);
+    text-align:center;
+    cursor:pointer;
+  }
+  .panel{
+    display:none;
+  }
+  .panel-grroup{
+    border-radius: 10px;
+    top: -20px;
+    height:900px;
+    width: 400px;
+    margin-left: -210px;
+    border:solid 2px rgb(197, 197, 197);
+    border-top:none;
+    background-color: black;
+  }
+  .tab.is-active{
+    /* background: linear-gradient(rgb(137, 119, 251), rgb(57, 30, 157)); */
+    /* background: linear-gradient(rgb(115, 102, 255) ,rgb(78, 17, 247)); */
+    color: rgb(78, 17, 247);;
+    text-decoration: rgb(24, 85, 251);;
+    border-radius: 10px;
+    transition: all 0.2s ease-out;
+    margin-left: 125px; 
+  }
+  .panel.is-show{
+    display:block;
+}
+.headline{
+    color: rgb(78, 17, 247);
+}
+.tab2-planel2{
+    top: 0px;
+    margin-left: 400px;
+
+}
+.tab2-group{
+    display: flex; 
+    width: 500px;
+    margin-left: 240px;
+  }
+  .tab2{
+    flex-grow: 1;
+    padding:5px;
+    list-style:none;
+    border:solid 0.5px rgb(241, 240, 240);
+    width: 500px;
+    text-align:center;
+    cursor:pointer;
+  }
+  .panel2{
+    display: none;
+  }
+  
+  .tab2.is-active2{
+    /* background: linear-gradient(rgb(137, 119, 251), rgb(57, 30, 157)); */
+    /* background: linear-gradient(rgb(99, 86, 252) ,rgb(78, 17, 247)); */
+    background: linear-gradient(rgb(115, 102, 255) ,rgb(78, 17, 247));
+    color:#FFF;
+    border-radius: 10px;
+    width: 500px;
+    transition: all 0.2s ease-out;
+  }
+  .panel2.is-show2{
+    display:block;
+}
+.image_bord{
+    border:solid 3px rgb(229, 228, 228);
+    background: rgb(241, 240, 240);
+    border-radius: 10px;
+    width: 1054px;
+    height: 390.37px;
+    margin-left: 17px;
+    margin-top: 35px;
+    top: 180px;
+}
+.bord{
+    border:solid 3px rgb(229, 228, 228);
+    border-radius: 10px;
+    margin-top: 30px;
+    background: white;
+    width: 1094px;
+    height: 900px;
+    margin-left: 10px;
+}
+
+.title_bord{
+    margin: 10px;
+    margin-top: 30px;
+    margin-left: 240px;
+    font-size: 50px;
+    height: 70px;
+}
+.create_tab_headline{
+    margin-left: 50px;
+}
+.border1{
+    border:solid 3px rgb(241, 240, 240);
+    border-radius: 10px;
+    width: 240px;
+    height: 40px;
+}
+.post_talk_bord{
+    border:solid 3px rgb(229, 228, 228);
+    background: rgb(241, 240, 240);
+    border-radius: 10px;
+    width: 900px;
+    height: 280px;
+    margin-left:100px;
+    margin-top: -16px;
+}
+.class_information{
+    border:solid 3px rgb(229, 228, 228);
+    background: white;
+    border-radius: 10px;
+    width: 275px;
+    height: 50px;
+    margin-left: 565px;
+    margin-top: -145px;
+}
+.main_information{
+    border-bottom: solid 5px rgb(78, 17, 247);
+    width: 150px;
+    margin-top:20px;
+}
+.manager_name{
+    width: 150px;
+    top: -10px;
+    font-size: 22.5px;
+}
+.hr_style{
+    width: 170px;
+    margin-top: -5px;
+}
+.kscnb{
+    margin-top: 10px;
+    margin-left: 30px;
+}
+.input_form{
+    margin-left: 10px;
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.class_name{
+    color: black;
+    text-decoration: none;
+}
+.class_post_field{
+    border-radius: 10px;
+    margin-left: 25px;
+    margin-top: 25px;
+    width: 450px;
+    height: 150px;
+    background: white;
+}
+.post_input{
+    width: 350px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border:solid 3px white;
+    background: rgb(241, 240, 240);
+}
+    </style>
+</head>
+<body style="background:  rgb(241, 240, 240);">
+        <header class="container py-5">
+            <div class="header">
+                <h1>
+                    <div class="head">
+                        <div class="headline"> 
+                            <b class="x">X.</b><b class="link">LiNK</b>
+                        </div>
+                        <p class="word">あなただけのコミュニティーを。</p>
+                    </div>
+                </h1>
+            </div>
+        </header>
+        <aside class="main_bord2">
+            <br>
+            <div class="class_create">
+                <h2 class="create_tab_headline">Classの作成</h2>
+            </div>
+            <li style="color: rgb(241, 240, 240);">
+            <a href="http://127.0.0.1:8080/profile.html/id=2/">
+                <button class="border_1">
+                    <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+                    </svg>
+                    <h6 class="account">takato</h6>
+                </button>
+            </a>
+            </li>
+            <br>
+            <li style="color: rgb(241, 240, 240);">
+                <a href="http://127.0.0.1:8080/">
+                    <button class="border_2">
+                        <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
+                            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"></path>
+                        </svg>
+                        <h5 class="home">Home</h5>
+                    </button>
+                </a>
+            </li>
+            <br>
+            <li style="color: rgb(241, 240, 240);">
+                <a href="http://127.0.0.1:8080/X.LiNK.com/community/community.php">
+                    <button class="border_2">
+                        <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
+                            <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"></path>
+                            <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"></path>
+                        </svg>
+                        <h5 class="home">Community</h5>
+                    </button>
+                </a>
+            </li>
+            <br>
+            <li>
+                <div style="margin-left: 50px; margin-top: -50px;">
+                    <div class="main_information"><b><h4>Class管理者</h4><b></b></b></div><b><b>
+                    <div class="manager_name">
+                        <h3>takato</h3>
+                        <hr class="hr_style">
+                    </div>
+                </b></b></div><b><b>
+                </b></b></li><li style="color: rgb(241, 240, 240);"><b><b>
+                    <input class="input_form" type="text" id="inputForm" onkeyup="inputCheck()" placeholder="Class名">
+                </b></b></li><b><b>
+            
+        </b></b></aside><b><b> 
+        <div style=" position: relative;margin-top: 15px; margin-left: 380px;" class="tab-panel">
+            <div class="panel-group">
+                <div class="panel tab-A is-show">
+                    <div class="bord">
+                        <div class="image_bord"><img src="http://127.0.0.1:8080/create/create.html/" alt=""></div>
+                        <div class="main_bord3">
+                            <b><div class="title_bord"><a href="http://127.0.0.1:8080/create/create.html/" id="check" class="class_name"></a></div></b>
+                            <hr style="width: 900px;margin-left: 95px;">
+                            <ul class="tab2-group">
+                                <li class="tab2 tab2-A is-active2">
+                                    <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
+                                        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"></path>
+                                    </svg>
+                                </li>
+                                <li class="tab2 tab2-B">
+                                    <svg style=" margin-left: 0px; margin-top: 4px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+                                    </svg>
+                                </li>       
+                                <li class="tab2 tab2-C">
+                                    <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+                                        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"></path>
+                                    </svg>
+                                </li>
+                                <li class="tab2 tab2-D">
+                                    <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
+                                    </svg>
+                                </li>           
+                            </ul>
+                            <div class="panel2-group">
+                                <div class="panel2 tab2-A is-show2">
+                                    <div class="post_talk_bord">
+                                        <div class="class_post_field">
+                                            <div class="field_1">
+                                                <span class="post_icon">
+                                                    <svg style="position: relative; margin-left: 25px; margin-top: 0px;" xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+                                                    </svg>
+                                                </span>
+                                                <input type="text" class="post_input" placeholder="sacasc">
+                                            </div>
+                                            <hr>
+                                        </div>
+                                        <div class="class_information">
+                                            <div class="kscnb"><h4><b>classの基本情報</b></h4></div>
+                                            <ul>
+                                                <div class="main_information"><b><h4>Class管理者</h4><b></b></b></div><b><b>
+                                                <li>
+                                                    <div class="manager_name">
+                                                        <h3>takato</h3>
+                                                        <hr class="hr_style">
+                                                    </div>
+                                                </li>
+                                            </b></b></ul><b><b>
+                                            
+                                        </b></b></div><b><b>
+                                    </b></b></div><b><b>
+                                </b></b></div><b><b>
+                                <div class="panel2 tab2-B">
+                                    <div class="post_talk_bord">
+                                        <h1>qecascasc</h1>
+                                    </div>
+                                </div>
+                                <div class="panel2 tab2-C">
+                                    <div class="post_talk_bord">
+                                        <h1>qecascasc</h1>
+                                    </div>
+                                </div>
+                                <div class="panel2 tab2-D">
+                                    <div class="post_talk_bord">
+                                        <h1>qecascasc</h1>
+                                    </div>
+                                </div>
+                            </b></b></div><b><b>
+                        </b></b></div><b><b>
+                    </b></b></div><b><b>
+                </b></b></div><b><b>
+                <div class="panel tab-B">
+                    <div class="bord">
+                        <div class="image_bord"><img src="http://127.0.0.1:8080/create/create.html/" alt=""></div>
+                        <div class="main_bord3">
+                            <div class="title_bord"></div>
+                            <hr>
+                            <ul class="tab2-group">
+                                <li class="tab2 tab2-A is-active2">
+                                    <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"></path>
+                                        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"></path>
+                                    </svg>
+                                </li>
+                                <li class="tab2 tab2-B">
+                                    <svg style=" margin-left: 0px; margin-top: 4px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                                        <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+                                    </svg>
+                                </li>       
+                                <li class="tab2 tab2-C">
+                                    <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+                                        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"></path>
+                                    </svg>
+                                </li>
+                                <li class="tab2 tab2-D">
+                                    <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"></path>
+                                    </svg>
+                                </li>           
+                            </ul>
+                            <div class="panel2-group">
+                                <div class="panel2 tab2-A is-show2">
+                                    <div class="post_talk_bord">
+                                        
+                                        <div class="class_information">
+                                            <div style="margin-top: 10px; masrgin-left: 20px;"><h4><b>classの基本情報</b></h4></div>
+                                            <ul>
+                                                <div class="main_information"><b><h4>Class管理者</h4><b></b></b></div><b><b>
+                                                <li>
+                                                    <div class="manager_name">
+                                                        <h3>takato</h3>
+                                                        <hr class="hr_style">
+                                                    </div>
+                                                </li>
+                                            </b></b></ul><b><b>
+                                            
+                                        </b></b></div><b><b>
+                                    </b></b></div><b><b>
+                                </b></b></div><b><b>
+                                <div class="panel2 tab2-B">
+                                    <div>
+                                        <div>wsdaxaXa</div>
+                                    </div>
+                                </div>
+                                <div class="panel2 tab2-C">
+                                    <div>
+                                        <div>AXxaxaXaxa</div>
+                                    </div>
+                                </div>
+                                <div class="panel2 tab2-D">
+                                    <div>
+                                        <div>XxXAxaXAxax</div>
+                                    </div>
+                                </div>
+                            </b></b></div><b><b>
+                        </b></b></div><b><b>
+                    </b></b></div><b><b>
+                </b></b></div><b><b>
+            </b></b></b></b></div><b><b><b>
+        </b></b></b></div><b><b><b>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function(){
+            // タブに対してクリックイベントを適用
+            const tabs = document.getElementsByClassName('tab');
+            for(let i = 0; i < tabs.length; i++) {
+              tabs[i].addEventListener('click', tabSwitch, false);
+            }
+          
+            // タブをクリックすると実行する関数
+            function tabSwitch(){
+              // タブのclassの値を変更
+              document.getElementsByClassName('is-active')[0].classList.remove('is-active');
+              this.classList.add('is-active');
+              // コンテンツのclassの値を変更
+              document.getElementsByClassName('is-show')[0].classList.remove('is-show');
+              const arrayTabs = Array.prototype.slice.call(tabs);
+              const index = arrayTabs.indexOf(this);
+              document.getElementsByClassName('panel')[index].classList.add('is-show');
+            };
+          }, false);
+        document.addEventListener('DOMContentLoaded', function(){
+            // タブに対してクリックイベントを適用
+            const tabs = document.getElementsByClassName('tab2');
+            for(let i = 0; i < tabs.length; i++) {
+              tabs[i].addEventListener('click', tabSwitch, false);
+            }
+          
+            // タブをクリックすると実行する関数
+            function tabSwitch(){
+              // タブのclassの値を変更
+              document.getElementsByClassName('is-active2')[0].classList.remove('is-active2');
+              this.classList.add('is-active2');
+              // コンテンツのclassの値を変更
+              document.getElementsByClassName('is-show2')[0].classList.remove('is-show2');
+              const arrayTabs = Array.prototype.slice.call(tabs);
+              const index = arrayTabs.indexOf(this);
+              document.getElementsByClassName('panel2')[index].classList.add('is-show2');
+            };
+          }, false);
+        function inputCheck(){
+            var inputValue = document.getElementById( "inputForm" ).value;
+            document.getElementById( "check" ).innerHTML = ' ' + inputValue;
+        }
+    </script>
+</b></b></b></b></b></body></html>

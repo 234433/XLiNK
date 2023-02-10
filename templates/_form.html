@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/com/static/style.css/' type='text/css'>
+    <title>XLiNK | Register Login</title>
+    {% load static %}
+    {% load    %}
+
+    <style type="text/css">
+        .headline{
+            position: flex;
+            z-index: 1;
+            background-size:cover;
+            background: black; 
+            border-radius: 10px;
+            padding: 2.5px;
+            font-size: 46px;
+            width: 180px;
+            height: 70px;
+            top: 20px;
+            margin-left: 0px;
+        }
+        .x{
+            position: relative;
+            margin-left: 5px;
+            color: rgb(78, 17, 247);
+        }
+        .links{
+            position: relative;
+            color: white;
+        }
+        .word_head{
+            font-size: 5px; 
+            margin-left: 20px;
+            margin-top: 10px;
+            width: 250px;
+            display: flex;
+        }
+        .name{
+            margin-left: 5px;
+            font-size: 25px;
+        }
+        .word{
+            margin-top: 0px;
+            margin-left: 50px;
+            font-size: 15px;
+        }
+        .forms{
+            width:400px;
+        }
+        .name{
+            width: 260px;
+            border-radius: 10px;
+        }
+        .mail{
+            width: 260px; 
+            height: 30px;
+            border-radius: 10px;
+        }
+        .pass{
+            width: 260px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .data{
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .mouth{
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .day{
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .create{
+            color: aliceblue;
+            background: rgb(47, 95, 255);
+            width: 150px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        .login{
+            color: aliceblue;
+            background: rgb(58, 116, 252);
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+            margin-left: 27.5px;
+        }
+        .form.as_p{
+            position: absolute;
+            border:solid 2px rgb(0,0,0);;
+            border-radius: 10px;
+            width: 400px;
+            height: 550px;
+            margin-left: 555px;
+        }
+        @media screen and (max-width: 480px) {
+            .link{
+                background-size:cover;
+                background: linear-gradient(rgb(95, 237, 95), rgb(31, 154, 31));
+                color: rgb(84, 62, 254);
+                border-radius: 10px;
+                padding: 7.5px;
+                font-size: 45px;
+            } 
+            .head{
+                display: flex;
+                padding-left: 80px;
+                font-size: 55px;
+            }
+            .headline{
+                margin-left: 55px;
+            }
+            .frame {
+                position: absolute;
+                width:380px;
+                height: 560px;
+                margin-top: 40px;
+                margin-left: 35px;
+                font-weight: bold;
+                border-radius:20px;
+                border: solid 1.5px hsl(0, 0%, 55%);
+                display: flex;
+            }
+            .explain{
+                margin-left: 45px;
+            }
+            .explainlink{
+                position: absolute;
+                background: linear-gradient(rgb(95, 237, 95), rgb(31, 154, 31));
+                color: rgb(84, 62, 254);
+                border-radius: 10px;
+                padding: 5px;
+                font-size: 30px;
+            }
+            .name{
+                margin-left: 5px;
+                font-size: 25px;
+            }
+            .word{
+                margin-top: 0px;
+                margin-left: 50px;
+                font-size: 15px;
+            }
+            .forms{
+                width:380px;
+            }
+            .name{
+                width: 220px;
+                font-size: 20px;
+                border-radius: 10px;
+            }
+            .mail{
+                width: 210px; 
+                height: 20px;
+                border-radius: 10px;
+            }
+            .pass{
+                width: 210px;
+                height: 20px;
+                border-radius: 10px;
+            }
+            .data{
+                width: 100px;
+                height: 20px;
+                border-radius: 10px;
+            }
+            .mouth{
+                width: 100px;
+                height: 20px;
+                border-radius: 10px;
+            }
+            .day{
+                width: 100px;
+                height: 20px;
+                border-radius: 10px;
+            }
+            .create{
+                color: aliceblue;
+                background: rgb(47, 95, 255);
+                width: 150px;
+                height: 40px;
+                border-radius: 10px;
+            }
+            .login{
+                color: aliceblue;
+                background: rgb(58, 116, 252);
+                width: 100px;
+                height: 40px;
+                border-radius: 10px;
+            }
+            .word_head{
+                font-size: 5px;
+                margin-left: 10px;
+                top: 80px;
+                display: flex;
+                width: 250px;
+            }
+            .form.as_p{
+                margin: 5px;
+                margin-left: 10px;
+                top: 30px;
+                font-size: 12.5px;
+            }
+        } 
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1>
+                <div class="head">
+                    <div class="headline"> 
+                        <b class="x">X.</b><b class="links">LiNK</b>
+                        <p class="word_head">あなただけのコミュニティーを。</p>
+                    </div>
+                </div>
+            </h1>
+        </div>
+    </header>
+    <hr>
+    <div>
+        <div class="frame">
+            <center>
+                <div class="forms">
+                    <table class="reg_form">
+                        <form class="forms" action="/XLiNK/home/"  enctype="multipart/form-data" method="post">
+                            {% csrf_token %}
+                            <div class="form.as_p">
+                                {{ form.as_p }}
+                                <input style="margin-left: 60px;" type="submit" value="{{ submit_label }}" />
+                        </form>
+                    </table>
+                </div>
+            </center>
+        </div>
+    </div>
+</body>

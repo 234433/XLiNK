@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/css/6-1-7.css">
+    <title>XLiNK | Home</title>
+    {% load crispy_forms_tags %}
+    <style>
+.aside_bord{
+    position: relative;
+    left: -275px;
+    top: 10px;
+}
+.aside{
+    top: 0px;
+}
+.border_2{
+    border:solid 3px rgb(241, 240, 240);
+    border-radius: 10px;
+    width: 220px;
+    height: 40px;
+    left: 0px;
+}
+.home{
+    position: relative;
+    margin-top: -25px;
+    padding: 0;
+}
+.border_1{
+    border:solid 3px rgb(241, 240, 240);
+    border-radius: 10px;
+    width: 220px;
+    height: 40px;
+    left: 0px;
+}
+.account{
+    position: relative;
+    padding:0;
+    margin-top: -20px;
+}
+.head{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    background: white;
+    width: 1700px;
+    height: 100px;
+}
+.headline{
+    position: flex;
+    z-index: 1;
+    background-size:cover;
+    background: black; 
+    border-radius: 10px;
+    padding: 0.5px;
+    font-size: 46px;
+    width: 180px;
+    height: 70px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.x{
+    position: relative;
+    color: rgb(78, 17, 247);
+    left: 15px;
+    top: 5px;
+}
+.link{
+    position: relative;
+    color: white;
+    left: 15px;
+    top: 5px;
+}
+.word{
+    position: relative;
+    margin-left: -100px;
+    margin-top: 5px;
+    font-size: 10px;
+}
+{% comment %} a.no-underline {
+    text-decoration: none;
+  } {% endcomment %}
+  .image_3{
+    position: relative;
+    margin-top: 0px;
+    margin: -2px;
+    top: 20px;
+    margin-left: 35px;
+    width:  40px;       /* ※縦横を同値に */
+    height: 40px;       /* ※縦横を同値に */
+    border-radius: 50%;
+  }
+  .home_post_bord{
+    position: relative;
+    font-size: 20px;
+    border:solid 2px rgb(0,0,0);;
+    border-radius: 10px;
+    background: white;
+    margin-left: 130px;
+    top: -305px;
+    width: 510px;
+    height: 620px;
+  }
+  .comment2{
+      position: relative;
+      font-size: 15px;
+      margin-left: 50px;
+      margin-right: 60px;
+  }
+  .post_button{
+      position: absolute;
+      width: 80px;
+      height: 30PX;
+      background: linear-gradient(rgb(128, 109, 249), rgb(58, 31, 154));
+      margin-left: 425px;
+      top: 145px;
+      border-radius: 20px;
+      color: white;
+  }
+  .file_post{
+    position: absolute;
+    top: 85px;
+    left: 30px;
+  }
+  .post_form{
+      position: absolute;
+      margin-left: 120px;
+      border-radius: 10px;
+      top: -470px;
+      height: 180px;
+      width: 530px;
+      border:solid 2px rgb(197, 197, 197);
+      border-top:none;
+      background:rgb(255, 255, 255);
+  } 
+  .post_picture{
+  
+  }
+  .image-icon{
+      color: linear-gradient(rgb(128, 109, 249), rgb(58, 31, 154));
+      margin-left: 100px;
+      top: 125px;
+  }
+  .icon{
+      margin-top: 10px;
+  }
+  .div-bord{
+      position: relative;
+      margin-left: 360px;
+      top: 450px;
+  }
+  .main_bord2{
+    position: fixed;
+    z-index: 1;
+    margin: 0;
+    top: 70px;
+    width: 250px;
+    height: 750px;
+}
+.search{
+    position: relative;
+    border:solid 3px rgb(229, 228, 228);;
+    border-radius: 10px;
+    top: -60px;
+    left: 200px;
+    width: 460px;
+    height: 40px;
+}
+.search_container{
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid #999;
+    padding: 3px 10px;
+    border-radius: 20px;
+    height: 2.2em;
+    width: 450px;
+    overflow: hidden;
+    left: 240px;
+    top: -55px;
+  }
+  .search_container input[type="text"]{
+    border: none;
+    height: 2.0em;
+  }
+  .search_container input[type="text"]:focus {
+    outline: 0;
+  }
+  .search_container input[type="submit"]{
+    cursor: pointer;
+    font-family: FontAwesome;
+    border: none;
+    background: rgb(78, 17, 247);
+    color: #fff;
+    position: absolute;
+    width: 3.5em;
+    height: 3.0em;
+    right:0px;
+    top: -3px;
+    outline : none;
+  }
+  .post{
+    position: absolute;
+    text-align: center;
+    margin-left: 120px;
+    border-radius: 10px;
+    top: -515px;
+    height: 35px;
+    width: 530px;
+    border:solid 2px rgb(197, 197, 197);
+    border-top:none;
+    background:rgb(255, 255, 255);
+  }
+  .comment{
+    position: absolute;
+    border-radius: 10px;
+    height: 110px;
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 440px;
+  }
+  .image_1{
+    position: relative;
+    margin-top: 20px;
+    margin-left: 10px;
+    width:  30px;       /* ※縦横を同値に */
+    height: 30px;       /* ※縦横を同値に */
+    border-radius: 50%;
+  }
+  .logout{
+    position: absolute;
+    display: flex;
+    width: 600px;
+    top: -20px;
+    left: 900px;
+  }
+  .logout_button{
+    font-size: 17.5px;
+    color: rgb(78, 17, 247);
+    text-decoration:none;
+  }
+  .head_menu{
+    font-size: 17.5px;
+
+  }
+  .srash{
+    font-size: 25px;
+    margin-top: -5px;
+  }
+  .username_button{
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+  }
+  .user_head{
+    text-decoration: none;
+    color: rgb(78, 17, 247);
+  }
+  .account_user{
+    font-size: 17.5px;
+    text-decoration:none;
+    color: black;
+} 
+.vroom{
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 200px;
+}
+.picture{
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 100px;
+}
+.account_name_bord{
+    text-decoration:none;
+    color: black;
+    margin-left: 10px;
+    font-size: 17.5px;
+    margin-top: -30px;
+}
+.class_bord{
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-left: 400px;
+    width: 450px;
+    height: 350px;
+    border:solid 2px rgb(176, 175, 175);
+    border-top:none;
+    background:rgb(255,255,255);
+}
+.image_bord{
+    position: relative;
+    border-radius: 10px;
+    width: 450px;
+    height: 225px;
+    left:-11px;
+    margin-top: -290px;
+    top: 232px;
+}
+.class_names{
+    position: relative;
+    margin-left: 30px;
+    top: 142.5px;
+    font-size: 19px;
+}
+.manager_name{
+    position: relative;
+    margin-left:20px;
+    top:150px;
+}
+.class_explain{
+    position: relative;
+    margin-top:-17.5px;
+    top: 142.5px;
+}
+.class_bord{
+    top: -550px;
+    margin-left: 160px;
+}
+.tab2-planel2{
+    top: 0px;
+    margin-left: 300px;
+
+}
+.tab2-group{
+    position: fixed;
+    z-index: 1;
+    margin-top: -590px; 
+    display: flex; 
+    width: 400px;
+
+    margin-left: 180px;
+  }
+  .tab2{
+    flex-grow: 1;
+    padding:5px;
+    list-style:none;
+    border:solid 0.5px white;
+    width: 400px;
+    text-align:center;
+    cursor:pointer;
+  }
+  .panel2{
+    display: none;
+  }
+  {% comment %} .panel2-group{
+    border-radius: 10px;
+    top: -20px;
+    height:900px;
+    width: 300px;
+    margin-left: -210px;
+    border:solid 2px rgb(197, 197, 197);
+    border-top:none;
+  } {% endcomment %}
+  .tab2.is-active2{
+    /* background: linear-gradient(rgb(137, 119, 251), rgb(57, 30, 157)); */
+    /* background: linear-gradient(rgb(99, 86, 252) ,rgb(78, 17, 247)); */
+    background: linear-gradient(rgb(78, 17, 247),rgb(78,18,247)); 
+    color:#FFF;
+    border-radius: 20px;
+    width: 400px;
+    transition: all 0.2s ease-out;
+  }
+  .panel2.is-show2{
+    display:block;
+}
+.aOFIVwBJ7hurQFVS2Xyv7bp9hHVcyESdOem3HwKYcdxzWaabvCd6kjXAJMRmNrg4{
+   
+}
+@media screen and (max-width: 480px) {
+    .head{
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0; /* 左から配置の基準位置を決める */
+        width: 480; /* ヘッダーの横幅を指定する */
+        background: white;
+        height: 57px;
+    }
+    .headline{
+        position: fixed;
+        z-index: 1;
+        background-size:cover;
+        background: black; 
+        border-radius: 10px;
+        padding: 0.5px;
+        font-size: 10px;
+        width: 42.5px;
+        height: 42.5px;
+        top: -2px;
+        left: -2.5px;
+    
+    }
+    .x{
+        color: rgb(78, 17, 247);
+        margin-left: -9px;
+        font-size: 37.5px;
+        top: -2.0px;
+    }
+    .link{
+        color: white;
+    }
+    .word{
+        margin-left: -10;
+        font-size: 10px;
+        {% comment %} color: rgb(241, 240, 240);; {% endcomment %}
+        color: white;
+    }
+    .search{
+        position: relative;
+        top: -75px;
+        left: 30px;
+
+    }
+    .search_container{
+        box-sizing: border-box;
+        position: relative;
+        border: 1px solid #999;
+        padding: 3px 10px;
+        border-radius: 20px;
+        height: 2.0em;
+        width: 265px;
+        overflow: hidden;
+        left: 30px;
+        top: -55px;
+      }
+      .search_container input[type="text"]{
+        border: none;
+        height: 2.0em;
+      }
+      .search_container input[type="text"]:focus {
+        outline: 0;
+      }
+      .search_container input[type="submit"]{
+        cursor: pointer;
+        font-family: FontAwesome;
+        border: none;
+        background: rgb(78, 17, 247);
+        color: #fff;
+        position: absolute;
+        width: 3.5em;
+        height: 3.0em;
+        right:0px;
+        top: -3px;
+        outline : none;
+      }
+    .border_1{
+        border:solid 3px rgb(229, 228, 228);;
+        border-radius: 10px;
+        width: 220px;
+        height: 40px;
+    }
+    .account{
+        position: relative;
+        padding:0;
+        margin-top: -25px;
+    }
+    .home_post_bord{
+        position: relative;
+        font-size: 20px;
+        border:solid 2px rgb(0,0,0);;
+        border-radius: 10px;
+        background: white;
+        left: -480px;
+        top: -515px;
+        width: 430px;
+        height: 530px;
+      }
+    .post{
+        position: relative;
+        text-align: center;
+        left: -480px;
+        border-radius: 10px;
+        top: -540px;
+        height: 35px;
+        width: 430px;
+        border:solid 2px rgb(197, 197, 197);
+        border-top:none;
+        background:rgb(255, 255, 255);
+      }
+    .post_form{
+        position: relative;
+        left: -480px;
+        border-radius: 10px;
+        top: -535px;
+        height: 180px;
+        width: 430px;
+        border:solid 2px rgb(197, 197, 197);
+        border-top:none;
+        background:rgb(255, 255, 255);
+    } 
+    .comment{
+        position: absolute;
+        border-radius: 10px;
+        height: 100px;
+        margin-left: 10px;
+        margin-top: 20px;
+        width: 355px;
+      }
+    .file_post{
+        position: absolute;
+        top: 85px;
+        left: 20px;
+    }
+    .post_button{
+        position: absolute;
+        width: 80px;
+        height: 30PX;
+        background: linear-gradient(rgb(128, 109, 249), rgb(58, 31, 154));
+        left: 225px;
+        top: 145px;
+        border-radius: 20px;
+        color: white;
+    }
+    .account_user{
+        top: -5px;
+        color: black;
+        text-decoration: none;
+        font-size: 15px;
+    } 
+}
+    </style>
+</head>
+<body style="background:  rgb(241, 240, 240);">
+    <header  class="container py-5">
+        <div class="header">
+            <h1>
+                <div class="head">
+                    <div class="headline" onclick="clickBtn()"> 
+                        <b onclick=x_button() class="x">X.</b><b class="link">LiNK</b>
+                    </div>
+                    {% comment %} <p class="word">あなただけのコミュニティーを。</p> {% endcomment %}
+                </div>
+            </h1>
+        </div>
+    </header>
+    <aside class="container py-5">
+        <div class="main_bord2">
+        <center class="main_bord">
+            <form method="get" action="/XLiNK/search/top.html" class="search_container">
+                <input type="text" size="60"  placeholder="キーワード検索"  name="q">
+                <input style="top: -6px;" type="submit" value="&#xf002">
+            </form>
+        </center>
+        <div class="logout" id="user-tools">
+            <font class="head_menu"><small>Welcome</small></font>
+            <div class="logout_button">
+                <strong>
+                    <a class="user_head" href="/profile.html/id={{ user.id }}/">{{user}}</a>
+                </strong>
+            </div> <strong class="srash">|</strong>
+            <div><strong><a class="logout_button" href="/admin/">Admin</a></strong></div> <strong class="srash">|</strong>
+            <div><strong><a class="logout_button" href="/index/login/">Login</a></strong></div> <strong class="srash">|</strong>
+            <form id="logout-form" method="post" action="/admin/logout/">
+                {% csrf_token %}
+                <input type="hidden" name="csrfmiddlewaretoken" value="aOFIVwBJ7hurQFVS2Xyv7bp9hHVcyESdOem3HwKYcdxzWaabvCd6kjXAJMRmNrg4">
+                <button type="submit">
+                    <strong><a class="logout_button" href="/index/">Logout</a></strong>
+                </button>
+            </form>
+            <strong class="srash">|</strong>
+        </div>
+        <span class="aside_bord">
+            <li style="color: rgb(241, 240, 240);">
+                <a class="side_name" href="/profile.html/id={{ user.id }}/">
+                    <button class="border_1">
+                        <svg class="icon" style="position: relative; margin-left: -180px; margin-top: 5px; font-size: 20px;" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>
+                        <h6 class="account">{{ user}}</h6>
+                    </button>
+                </a>
+            </li>
+            <br>
+            <li style="color: rgb(241, 240, 240);">
+                <a class="side_name" href="/">
+                    <button class="border_2">
+                        <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                        </svg>
+                        <h5 class="home">Home</h5>
+                    </button>
+                </a>
+            </li>
+            <br>
+            <li style="color: rgb(241, 240, 240);">
+                <a class="side_name" href="/community/">
+                    <button class="border_2">
+                        <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                            <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                        </svg>
+                        <h5 class="home">community</h5>
+                    </button>
+                </a>
+            </li>
+            <br>
+            <li style="color: rgb(241, 240, 240);">
+                <a class="side_name" href='class/create.html/'>
+                    <button class="border_2">
+                        <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-window-plus" viewBox="0 0 16 16">
+                            <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1ZM4 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                            <path d="M0 4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v4a.5.5 0 0 1-1 0V7H1v5a1 1 0 0 0 1 1h5.5a.5.5 0 0 1 0 1H2a2 2 0 0 1-2-2V4Zm1 2h13V4a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2Z"/>
+                            <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z"/>
+                        </svg>
+                        <h5 class="home">CreateClass</h5>
+                    </button>
+                </a>
+            </li>
+            <li style="color: rgb(241, 240, 240);">
+                {% for home in homes %}
+                <div class="aOFIVwBJ7hurQFVS2Xyv7bp9hHVcyESdOem3HwKYcdxzWaabvCd6kjXAJMRmNrg4"><a href="/profile.html/id={{ home.id }}/">{{home.name}}</a></div>
+                {% endfor %}
+            </li>
+            <br>
+            <li>
+                <div>{{ form | crispy}}</div>
+            </li>
+        </span>
+    </aside>
+    <div  class="div-bord">
+        {% comment %} <span>
+            {%for community in communitys%}
+            <br>
+            <div  style="top: 150px;margin-left: -250px;">
+                <div class="class_bord">
+                    <div><img class="image_bord" src="/media/{{account.backimage}}" alt=""><a href="/community/id={{account.id}}/">{{ community.backimage.id | linebreaks }}</a></div>
+                    <div class="class_names">
+                        <b><a href="/community/id={{community.id}}/">{{community.class_name}}</a></b>
+                        <small>:[{{community.genre}}クラス]</small>
+                    </div>
+                    <div class="class_explain">
+                        <small>{{community.explain | linebreaks}}</small>
+                    </div>
+                </div>
+            </div>
+            <br>
+            {% endfor %}
+        </span> {% endcomment %}
+        {% comment %} <div class="post">
+            <div style="font-size: 20px;">
+                <a href="">[ クラスボード ]</a>
+            </div>
+        </div> {% endcomment %}
+        <div class="tab-panel">
+            <div class="panel-group">
+                <div class="panel tab-A is-show">
+                    <ul class="tab2-group">
+                        <li class="tab2 tab2-A is-active2">
+                            All
+                        </li>
+                        <li class="tab2 tab2-B">
+                            company
+                        </li>       
+                        <li class="tab2 tab2-C">
+                            organization
+                        </li>
+                        <li class="tab2 tab2-D">
+                            music
+                        </li> 
+                        <li class="tab2 tab2-D">
+                            TalkClass
+                        </li>    
+                    </ul>
+                    <div class="panel2-group">
+                        <div class="panel2 tab2-A is-show2">
+                        {% for account in accounts%}
+                        <br>
+                        <div class="class_bord">
+                            <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
+                                <a href="/community/id={{account.id}}/">
+                                    <div>
+                                        <img class="image_bord" src="/media/{{account.backimage}}" alt="">
+                                        <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                    </div>
+                                    <div class="class_names">
+                                        <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                        <small><u>:[{{account.genre}}クラス]</u></small>
+                                    </div>
+                                    <div class="class_explain">
+                                        <small>{{account.explain | linebreaks}}</small>
+                                    </div>
+                                </a>
+                            </span>
+                        </div>
+                        {% endfor %}
+                        </div>
+                        <div class="panel2 tab2-B">
+                            <br>
+                            <div class="class_bord">
+                                <h1>company</h1>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="panel2 tab2-C">
+                            <br>
+                            <div class="class_bord">
+                                <h1>organization</h1>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="panel2 tab2-D">
+                            <br>
+                            <div class="class_bord">
+                                <div>
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+                                        <button type="submit">
+                                            music
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="panel2 tab2-E">
+                            <br>
+                            <div class="class_bord">
+                                <h1>TalkClass</h1>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        {% comment %} <div class="post_form">
+            <form method="post" action="" enctype="multipart/form-data" >
+                {%csrf_token%}
+                <a href="/XLiNK/profile.html"><img class="image_1" src="" alt=""></a>
+                <textarea onclick=Post_comment() class="comment" maxlength="160"  placeholder="What's going on ?"></textarea>
+                <span>
+                    <hr style="margin-top: 90px;">
+                    <label class="picture">
+                        <svg style="color: rgb(81, 46, 255);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-card-image" viewBox="0 0 16 16">
+                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                            <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54A.505.505 0 0 1 1 12.5v-9a.5.5 0 0 1 .5-.5h13z"/>
+                        </svg>
+                        <b>写真</b>
+                        <input style="display: none;" type="file">
+                    </label>
+                    <label class="vroom">
+                        <svg style="color: rgb(46, 102, 255);" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-camera-video-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5z"/>
+                        </svg>
+                        <b>動画</b> 
+                        <input style="display: none;" type="file"/>
+                    </label>
+                </span>
+                <input class="post_button" type="submit" value="+Post"/>
+            </form>
+        </div> {% endcomment %}
+        <br>
+        {% comment %} {% for account in accounts %}
+        <div class="home_post_bord">
+            <div>
+                <a class="username_button" href="/profile.html/id={{ account.id }}/"><img class="image_3" src="" alt=""></a>
+                <span><b><a class="account_name_bord" href="/profile.html/id={{ account.id }}/" >{{account.name}}</a></b></span>
+                <br>
+            </div>
+            <br>
+            <div class="comment2">
+                <b>{{account.infomation | linebreaks}}</b>
+            </div>
+            <hr style="margin-top: 390px;">
+        </div>
+        <br>
+        {% endfor %} {% endcomment %}
+    </div>
+    <script>
+        id='Post_comment'
+        function x_button(){
+           alert('TEXTBOX');
+        }
+        document.addEventListener('DOMContentLoaded', function(){
+            // タブに対してクリックイベントを適用
+            const tabs = document.getElementsByClassName('tab2');
+            for(let i = 0; i < tabs.length; i++) {
+              tabs[i].addEventListener('click', tabSwitch, false);
+            }
+          
+            // タブをクリックすると実行する関数
+            function tabSwitch(){
+              // タブのclassの値を変更
+              document.getElementsByClassName('is-active2')[0].classList.remove('is-active2');
+              this.classList.add('is-active2');
+              // コンテンツのclassの値を変更
+              document.getElementsByClassName('is-show2')[0].classList.remove('is-show2');
+              const arrayTabs = Array.prototype.slice.call(tabs);
+              const index = arrayTabs.indexOf(this);
+              document.getElementsByClassName('panel2')[index].classList.add('is-show2');
+            };
+          }, false);
+        function inputCheck(){
+            var inputValue = document.getElementById( "id_class_name" ).value;
+            document.getElementById( "check" ).innerHTML = ' ' + inputValue;
+        }
+    </script>
+</body>
+</html>   

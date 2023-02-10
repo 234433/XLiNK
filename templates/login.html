@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='/com/static/style.css/' type='text/css'>
+    <title>XLiNK | Register Login</title>
+    {% load static %}
+    {% load widget_tweaks %}
+    {% load crispy_forms_tags %}
+    <style type="text/css">
+        .headline{
+            position: flex;
+            z-index: 1;
+            background-size:cover;
+            background: black; 
+            border-radius: 10px;
+            padding: 2.5px;
+            font-size: 46px;
+            width: 180px;
+            height: 70px;
+            margin-top: 10px;
+            margin-left: 0px;
+        }
+        .x{
+            position: relative;
+            margin-left: 5px;
+            color: rgb(78, 17, 247);
+        }
+        .links{
+            position: relative;
+            color: white;
+        }
+        .word_head{
+            font-size: 5px; 
+            margin-left: 20px;
+            margin-top: 15px;
+            width: 250px;
+            display: flex;
+        }
+        .name{
+            margin-left: 5px;
+            font-size: 25px;
+        }
+        .word{
+            margin-top: 15px;
+            margin-left: 50px;
+            font-size: 15px;
+        }
+        .forms{
+            width:400px;
+        }
+        .name{
+            width: 260px;
+            border-radius: 10px;
+        }
+        .mail{
+            width: 260px; 
+            height: 30px;
+            border-radius: 10px;
+        }
+        .pass{
+            width: 260px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .data{
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .mouth{
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .day{
+            width: 80px;
+            height: 30px;
+            border-radius: 10px;
+        }
+        .create{
+            color: aliceblue;
+            background: rgb(47, 95, 255);
+            width: 150px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        .login{
+            color: aliceblue;
+            background: rgb(58, 116, 252);
+            width: 100px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        .register_button{
+            text-decoration: none;
+            color: white; 
+        }
+        @media screen and (max-width: 480px) {
+            .link{
+                background-size:cover;
+                background: linear-gradient(rgb(95, 237, 95), rgb(31, 154, 31));
+                color: rgb(84, 62, 254);
+                border-radius: 10px;
+                padding: 7.5px;
+                font-size: 45px;
+            } 
+            .head{
+                display: flex;
+                padding-left: 80px;
+                font-size: 55px;
+            }
+            .headline{
+                margin-left: 55px;
+            }
+            .frame {
+                position: absolute;
+                width:380px;
+                height: 560px;
+                margin-top: 40px;
+                margin-left: 35px;
+                font-weight: bold;
+                border-radius:20px;
+                border: solid 1.5px hsl(0, 0%, 55%);
+                display: flex;
+            }
+            .explain{
+                margin-left: 45px;
+            }
+            .explainlink{
+                position: absolute;
+                background: linear-gradient(rgb(95, 237, 95), rgb(31, 154, 31));
+                color: rgb(84, 62, 254);
+                border-radius: 10px;
+                padding: 5px;
+                font-size: 30px;
+            }
+            .name{
+                margin-left: 5px;
+                font-size: 25px;
+            }
+            .word{
+                margin-top: 0px;
+                margin-left: 50px;
+                font-size: 15px;
+            }
+            .forms{
+                width:380px;
+            }
+            .name{
+                width: 220px;
+                font-size: 20px;
+                border-radius: 10px;
+            }
+            .mail{
+                width: 210px; 
+                height: 20px;
+                border-radius: 10px;
+            }
+            .pass{
+                width: 210px;
+                height: 20px;
+                border-radius: 10px;
+            }
+            .data{
+                width: 100px;
+                height: 20px;
+                border-radius: 10px;
+            }
+            .mouth{
+                width: 100px;
+                height: 20px;
+                border-radius: 10px;
+            }
+            .day{
+                width: 100px;
+                height: 20px;
+                border-radius: 10px;
+            }
+            .create{
+                color: aliceblue;
+                background: rgb(47, 95, 255);
+                width: 150px;
+                height: 40px;
+                border-radius: 10px;
+            }
+            .login{
+                color: aliceblue;
+                background: rgb(58, 116, 252);
+                width: 100px;
+                height: 40px;
+                border-radius: 10px;
+            }
+            .word_head{
+                font-size: 5px;
+                margin-left: 10px;
+                top: 80px;
+                display: flex;
+                width: 250px;
+            }
+            .form.as_p{
+                top: 50px;
+                font-size: 12.5px;
+
+            }
+        } 
+    </style>
+</head>
+<body>
+    <div  class="container py-5">
+        <div class="header">
+            <center>
+                <div class="name">
+                    Login
+                </div>
+                <hr>
+                <header>
+                    <div class="header">
+                        <h1>
+                            <div class="head">
+                                <div class="headline"> 
+                                    <b class="x">X.</b><b class="links">LiNK</b>
+                                    <p class="word_head">あなただけのコミュニティーを。</p>
+                                </div>
+                            </div>
+                        </h1>
+                    </div>
+                </header>
+                <hr>
+                <br>
+                <div class="forms">
+                    <div class="reg_form">
+                        <!--Login--> 
+                        <form class="forms" enctype="multipart/form-data" method="POST">
+                            {% csrf_token %}
+                            {{ login_form|crispy }}
+                            <button class="btn btn-primary" type="submit">Login</button>
+                        </form>
+                        <p class="text-center">Don't have an account? <a href="/index/register/">Create an account</a>.</p>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </div>
+</body>
