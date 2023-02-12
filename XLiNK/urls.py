@@ -13,4 +13,6 @@ urlpatterns = [
     path('profile.html/id=<int:pk>/', views.home, name="home"),
     path("community/id=<int:pk>/", views.communities, name="communities"),
     path('class/manager/id=<int:pk>/', views.group, name="group"),
+    path('', views.IndexView.as_view(), name="accounts"),
+    path('class/<slug:name>/', views.posts_by_category, name="class"),
 ]

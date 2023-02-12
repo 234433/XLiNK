@@ -336,9 +336,8 @@
     z-index: 1;
     margin-top: -590px; 
     display: flex; 
-    width: 400px;
-
-    margin-left: 180px;
+    width: 500px;
+    margin-left: 150px;
   }
   .tab2{
     flex-grow: 1;
@@ -546,20 +545,20 @@
     <aside class="container py-5">
         <div class="main_bord2">
         <center class="main_bord">
-            <form method="get" action="/XLiNK/search/top.html" class="search_container">
-                <input type="text" size="60"  placeholder="キーワード検索"  name="q">
+            <form method="get" action="/" class="search_container">
+                <input type="text" size="60"  placeholder="キーワード検索"  name="keyword">
                 <input style="top: -6px;" type="submit" value="&#xf002">
             </form>
         </center>
         <div class="logout" id="user-tools">
-            <font class="head_menu"><small>Welcome</small></font>
+            [<font class="head_menu"><small>Welcome</small></font>
             <div class="logout_button">
                 <strong>
                     <a class="user_head" href="/profile.html/id={{ user.id }}/">{{user}}</a>
                 </strong>
-            </div> <strong class="srash">|</strong>
-            <div><strong><a class="logout_button" href="/admin/">Admin</a></strong></div> <strong class="srash">|</strong>
-            <div><strong><a class="logout_button" href="/index/login/">Login</a></strong></div> <strong class="srash">|</strong>
+            </div> <strong class="srash">/</strong>
+            <div><strong><a class="logout_button" href="/admin/">Admin</a></strong></div> <strong class="srash">/</strong>
+            <div><strong><a class="logout_button" href="/index/login/">Login</a></strong></div> <strong class="srash">/</strong>
             <form id="logout-form" method="post" action="/admin/logout/">
                 {% csrf_token %}
                 <input type="hidden" name="csrfmiddlewaretoken" value="aOFIVwBJ7hurQFVS2Xyv7bp9hHVcyESdOem3HwKYcdxzWaabvCd6kjXAJMRmNrg4">
@@ -567,7 +566,8 @@
                     <strong><a class="logout_button" href="/index/">Logout</a></strong>
                 </button>
             </form>
-            <strong class="srash">|</strong>
+            <strong class="srash">/</strong>
+            ]
         </div>
         <span class="aside_bord">
             <li style="color: rgb(241, 240, 240);">
@@ -628,6 +628,11 @@
             <li>
                 <div>{{ form | crispy}}</div>
             </li>
+            <li>
+                {% comment %} {% for category in category_list %}
+                    {{category}}
+                {% endfor %} {% endcomment %}
+            </li>
         </span>
     </aside>
     <div  class="div-bord">
@@ -659,12 +664,14 @@
                 <div class="panel tab-A is-show">
                     <ul class="tab2-group">
                         <li class="tab2 tab2-A is-active2">
-                            All
+                            <a href="/">All</a>
                         </li>
+                        {% for category in category_list %}
                         <li class="tab2 tab2-B">
-                            company
-                        </li>       
-                        <li class="tab2 tab2-C">
+                            <a href="/class/{{category.name}}/">{{category.name}}</a>
+                        </li>      
+                        {% endfor %} 
+                        {% comment %} <li class="tab2 tab2-C">
                             organization
                         </li>
                         <li class="tab2 tab2-D">
@@ -672,11 +679,11 @@
                         </li> 
                         <li class="tab2 tab2-D">
                             TalkClass
-                        </li>    
+                        </li>     {% endcomment %}
                     </ul>
                     <div class="panel2-group">
                         <div class="panel2 tab2-A is-show2">
-                        {% for account in accounts%}
+                    {% for account in accounts%}
                         <br>
                         <div class="class_bord">
                             <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
@@ -687,7 +694,7 @@
                                     </div>
                                     <div class="class_names">
                                         <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
-                                        <small><u>:[{{account.genre}}クラス]</u></small>
+                                        <small><u>:[{{account.category}}クラス]</u></small>
                                     </div>
                                     <div class="class_explain">
                                         <small>{{account.explain | linebreaks}}</small>
@@ -695,43 +702,115 @@
                                 </a>
                             </span>
                         </div>
-                        {% endfor %}
                         </div>
                         <div class="panel2 tab2-B">
                             <br>
                             <div class="class_bord">
-                                <h1>company</h1>
+                                <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
+                                    <a href="/community/id={{account.id}}/">
+                                        <div>
+                                            <img class="image_bord" src="/media/{{account.backimage}}" alt="">
+                                            <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                        </div>
+                                        <div class="class_names">
+                                            <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                            <small><u>:[{{account.category}}クラス]</u></small>
+                                        </div>
+                                        <div class="class_explain">
+                                            <small>{{account.explain | linebreaks}}</small>
+                                        </div>
+                                    </a>
+                                </span>
                             </div>
                             <br>
                         </div>
                         <div class="panel2 tab2-C">
                             <br>
                             <div class="class_bord">
-                                <h1>organization</h1>
+                                {{category.name}}
+                                <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
+                                    <a href="/community/id={{account.id}}/">
+                                        <div>
+                                            <img class="image_bord" src="/media/{{account.backimage}}" alt="">
+                                            <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                        </div>
+                                        <div class="class_names">
+                                            <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                            <small><u>:[{{account.category}}クラス]</u></small>
+                                        </div>
+                                        <div class="class_explain">
+                                            <small>{{account.explain | linebreaks}}</small>
+                                        </div>
+                                    </a>
+                                </span>
                             </div>
                             <br>
                         </div>
                         <div class="panel2 tab2-D">
                             <br>
                             <div class="class_bord">
-                                <div>
-                                    <form method="POST">
-                                        {% csrf_token %}
-                                        {{ form.as_p }}
-                                        <button type="submit">
-                                            music
-                                        </button>
-                                    </form>
-                                </div>
+                                {{category.name}}
+                                <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
+                                    <a href="/community/id={{account.id}}/">
+                                        <div>
+                                            <img class="image_bord" src="/media/{{account.backimage}}" alt="">
+                                            <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                        </div>
+                                        <div class="class_names">
+                                            <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                            <small><u>:[{{account.category}}クラス]</u></small>
+                                        </div>
+                                        <div class="class_explain">
+                                            <small>{{account.explain | linebreaks}}</small>
+                                        </div>
+                                    </a>
+                                </span>
                             </div>
                             <br>
                         </div>
                         <div class="panel2 tab2-E">
                             <br>
                             <div class="class_bord">
-                                <h1>TalkClass</h1>
+                                {{category.name}}
+                                <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
+                                    <a href="/community/id={{account.id}}/">
+                                        <div>
+                                            <img class="image_bord" src="/media/{{account.backimage}}" alt="">
+                                            <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                        </div>
+                                        <div class="class_names">
+                                            <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                            <small><u>:[{{account.category}}クラス]</u></small>
+                                        </div>
+                                        <div class="class_explain">
+                                            <small>{{account.explain | linebreaks}}</small>
+                                        </div>
+                                    </a>
+                                </span>
                             </div>
                         </div>
+                        <div class="panel2 tab2-F">
+                            <br>
+                            <div class="class_bord">
+                                {{category.name}}
+                                <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
+                                    <a href="/community/id={{account.id}}/">
+                                        <div>
+                                            <img class="image_bord" src="/media/{{account.backimage}}" alt="">
+                                            <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                        </div>
+                                        <div class="class_names">
+                                            <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                            <small><u>:[{{account.category}}クラス]</u></small>
+                                        </div>
+                                        <div class="class_explain">
+                                            <small>{{account.explain | linebreaks}}</small>
+                                        </div>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    {% endfor %}
                     </div>    
                 </div>
             </div>
@@ -763,7 +842,7 @@
             </form>
         </div> {% endcomment %}
         <br>
-        {% comment %} {% for account in accounts %}
+        {% comment %} {% for company in accounts %}
         <div class="home_post_bord">
             <div>
                 <a class="username_button" href="/profile.html/id={{ account.id }}/"><img class="image_3" src="" alt=""></a>

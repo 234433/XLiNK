@@ -9,12 +9,14 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm #add this
 from django.contrib.auth.models import User
 from django.utils import timezone
-from .models import Account, User, Group, Comment
+from .models import Account, User, Group, Comment, Category
 from django.views import generic
 from django.shortcuts import get_object_or_404
 from django.contrib import auth
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
+from django.db.models import Q
 
 @csrf_exempt
 def create_request(request):
@@ -70,6 +72,7 @@ def index(request):
 @csrf_exempt
 def accounts(request):
 	accounts = Group.objects.order_by('-class_name')[:100000]
+
 	template=loader.get_template('home.html')
 	context={
 		'csrf_token': '',
@@ -169,3 +172,28 @@ def group(request, pk):
 		'group': group
 	}
 	return HttpResponse(template.render(context, request))
+class IndexView(ListView):
+	model = Group
+	template_name = "home.html"
+	def get_queryset(self):
+		queryset = Group.objects.order_by("-class_name")
+		keyword = self.request.GET.get("keyword")
+		if keyword:
+			queryset = queryset.filter(
+				Q(class_name__icontains=keyword) | Q(genre__icontains=keyword)
+			)
+		return queryset
+# class CatagoryView(generic.ListView):
+# 	model = Group
+# 	paginate_by = 10
+# 	template_name = "home.html"
+# 	def get_queryset(self):
+# 		category = get_object_or_404(Category, pk=self.kwargs['pk'])
+# 		queryset = Group.objects.order_by('class_name').filter(category=category)
+# 		return queryset
+def posts_by_category(request, name):
+	category = Category.objects.get(name=name)
+	accouunts = Group.objects.filter(category=category)
+	return render(request, 'home.html', {'category': category, 'accounts':accouunts})
+# def post_comments(request):
+# 	model = Comment
