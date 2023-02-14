@@ -443,7 +443,6 @@ transition: all 0.2s;
     padding: 15px 25px;
     color: black;
 }
-
     </style>
 </head>
 <body class="container py-5" style="background:  rgb(241, 240, 240);">
@@ -606,20 +605,29 @@ transition: all 0.2s;
                                                 <br>
                                                 <ul>
                                                     <div>
-                                                        <div>
-                                                            {%for comment in community.comments.all %}
-                                                                {% if comment.image %}
-                                                                <div class="comment_commenter_name">{{comment.name | linebreaks}}</div>
-                                                                <div class="comment">{{comment.comment | linebreaks}}</div>
-                                                                <div class="image_bord"><img src="/media/{{comment.image.id}}/" alt="">{{comment.image | linebreaks}}</div>
-                                                                {% else %} 
-                                                                <div class="comment_commenter_name">{{comment.name | linebreaks}}</div>
-                                                                <div class="comment">{{comment.comment | linebreaks}}</div>
-                                                                {% endif %}
-                                                                {%empty%}
-                                                                <div>Not Comments</div>
-                                                            {% endfor %}
+                                                    {%for comment in community.comments.all %}
+                                                        {% if comment.image %}
+                                                        <div class="copmment_bord">
+                                                            <span>
+                                                                <div class="comment_commenter_name">{{comment.user|linebreaks}}</div>
+                                                            </span>
+                                                            <hr>
+                                                            <span>
+                                                                <div class="comment">{{comment.comment|linebreaks}}</div>
+                                                                <div class="image_bord">
+                                                                    <img src="/image/{{comment.image.id}}/" alt="">
+                                                                </div>
+                                                            </span>
                                                         </div>
+                                                        {% else %} 
+                                                        <div class="copmment_bord">
+                                                            <div class="comment_commenter_name">{{comment.name | linebreaks}}</div>
+                                                            <div class="comment">{{comment.text | linebreaks}}</div>
+                                                        </div>
+                                                        {% endif %}
+                                                        {%empty%}
+                                                        <div>Not Comments</div>
+                                                    {% endfor %}
                                                     </div>
                                                 </ul>
                                             </span>

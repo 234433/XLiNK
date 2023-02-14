@@ -70,9 +70,9 @@ class Group(models.Model):
 class Comment(models.Model):
     Destination = models.ForeignKey(Group, null=True,blank=True ,on_delete=models.CASCADE)
     user = models.CharField(max_length=25,blank=True, null=True, verbose_name="ユーザー名")
-    comment = models.TextField(max_length=180, blank=True)
+    text = models.TextField(max_length=180, blank=True)
     image = models.ImageField(upload_to='image/', verbose_name="Image")
     def __str__(self):
-        return str(self.comment)
+        return str(self.user)
     class Meta:
         verbose_name_plural = 'Comments'

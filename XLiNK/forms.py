@@ -68,7 +68,7 @@ class CommentForm(forms.ModelForm):
 		model = Comment
 		fields = "__all__"
 		widgets = {
-			'comment':forms.Textarea(
+			'text':forms.Textarea(
 				attrs={'placeholder': "what's goning on ?"},				
 			),
 			'user': forms.TextInput(
