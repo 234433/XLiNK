@@ -125,11 +125,19 @@ def community(request):
 		'communitys':communitys,
 	}
 	return HttpResponse(template.render(context, request))
+class CommentView(generic.CreateView):
+	form_class = CommentForm
+	template_name = 'comment_post.html'
+	success_url = '/community/{{community.id}}/'
+post = CommentView.as_view()
+# def posts(request):
+# 	posts = Group.objects.order_by("-class-name")[:100]
+
 def communities(request, pk):
 	community = Group.objects.get(pk=pk)
 	template  = loader.get_template('class.html')
 	context = {
-		'community': community
+		'community': community,
 	}
 	return HttpResponse(template.render(context, request))
 def class_request(request):
@@ -154,10 +162,7 @@ class CreateClassView(generic.CreateView):
 	template_name="create.html"
 	success_url = '/'
 classcreate= CreateClassView.as_view()
-class CommentView(generic.CreateView):
-	form_class = CommentForm
-	template_name = 'class.html'
-post = CommentView.as_view()
+
 def groups(request):
 	groups = Group.objects.order_by("_manager_name")[:1000]
 	template = loader.get_template("class.html")
@@ -197,3 +202,27 @@ def posts_by_category(request, name):
 	return render(request, 'home.html', {'category': category, 'accounts':accouunts})
 # def post_comments(request):
 # 	model = Comment
+# 	if request.POST:
+# def post_comment(request):
+#     if request.method == 'POST':
+#         form = CommentForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/community/id={{community.id}}/')
+#     else:
+#         form = CommentForm()
+#     return render(request, 'comment_post.html', {'form': form})
+def comments(request):
+    template = loader.get_template('class.html')
+    comments = Comment.objects.order_by('-created_at')[:10000]
+    context = {
+        'comments': comments
+    }
+    return HttpResponse(template.render(context, request))
+def comment(request,pk):
+    template = loader.get_template('class.html')
+    comment = Comment.objects.get(pk=pk)
+    context = {
+        'comment': comment
+    }
+    return HttpResponse(template.rebder(context, request))

@@ -626,9 +626,6 @@
             </li>
             <br>
             <li>
-                <div>{{ form | crispy}}</div>
-            </li>
-            <li>
                 {% comment %} {% for category in category_list %}
                     {{category}}
                 {% endfor %} {% endcomment %}
@@ -727,6 +724,7 @@
                         <div class="panel2 tab2-C">
                             <br>
                             <div class="class_bord">
+                                
                                 {{category.name}}
                                 <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
                                     <a href="/community/id={{account.id}}/">

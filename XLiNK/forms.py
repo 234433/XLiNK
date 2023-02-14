@@ -69,12 +69,15 @@ class CommentForm(forms.ModelForm):
 		fields = "__all__"
 		widgets = {
 			'comment':forms.Textarea(
-				attrs={'placeholder': "what's goning on ?"}
+				attrs={'placeholder': "what's goning on ?"},				
 			),
+			'user': forms.TextInput(
+			attrs={'placeholder': "your user name"}
+			)
 		}
 	def save(self,commit=True):
 		user = super(CommentForm, self).save(commit=True)
-		user.text= self.cleaned_data['comment']
+		user.text= self.cleaned_data['user']
 		if commit:
 			user.save()
 		return user

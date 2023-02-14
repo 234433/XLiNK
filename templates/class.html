@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/css/6-1-7.css">
     <title>XLiNK | Home</title>
     {% load crispy_forms_tags %}
-
     <style>
 .head{
     position: fixed;
@@ -282,13 +281,14 @@
     border-radius: 10px;
     width: 275px;
     height: 50px;
-    margin-left: 565px;
+    margin-left: 525px;
     margin-top: -120px;
 }
 .main_information{
     border-bottom: solid 5px rgb(78, 17, 247);
     width: 150px;
     margin-top:20px;
+s
 }
 .manager_name{
     width: 150px;
@@ -296,8 +296,9 @@
     font-size: 22.5px;
 }
 .class_explain{
-    width: 300px;
-    top: -40px;
+    width: 320px;
+    margin-top: -10px;
+    margin-left: -25px;
     font-size: 20px;
 }
 .hr_style{
@@ -393,17 +394,18 @@ transition: all 0.2s;
     display: none;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 0px;
     height: 100%;
     width: 100%;
     background-color: rgba(46, 46, 46, 0.7);
     z-index: 10;
 }
-.modal-content {
+#modal-content {
     background-color: #f4f4f4;
     border-radius: 10px;
+    margin-top: -150px;
     margin: 15% auto;
-    width: 500px;
+    width: 450px;
     box-shadow: 0 2px 7px black;
     animation-name: popup;
     animation-duration: 0.05s;
@@ -441,6 +443,7 @@ transition: all 0.2s;
     padding: 15px 25px;
     color: black;
 }
+
     </style>
 </head>
 <body class="container py-5" style="background:  rgb(241, 240, 240);">
@@ -518,28 +521,15 @@ transition: all 0.2s;
             </li>
             <br>
             <div>
-                <main>
-                    {% comment %} <button id="modalOpen">Create</button> {% endcomment %}
-                    <div id="modal">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1><center>Comment作成</center></h1>
-                          <span class="modalClose">&times;</span>
+                <div  class="container py-5">
+                    <div id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+                        <div id="modal-overlay">
+                            <div id="modal-content" role="document">
+                                {% include 'comment_post.html' %}
+                            </div>
                         </div>
-                        <div class="modal-body">
-                          <div>
-                            <form class="forms" enctype="multipart/form-data" method="post">
-                                {% csrf_token %}
-                                <div>
-                                    {{ form | crispy}}
-                                </div>
-                                <div style="text-align: center; font-size: 17.5;"><button class="btn btn-primary" type="submit">create</button></div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                </main>
+                </div>
             </div>
             <li>
                 {% for group in groups %}
@@ -594,7 +584,7 @@ transition: all 0.2s;
                                                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                                     </svg>
                                                 </span>
-                                                <input id="modalOpen" type="text" class="post_input"  placeholder="What's going on ?"/>
+                                                <input id="modalOpen" type="text" class="post_input"  placeholder="What's going on ?"/></a>
                                             </div>
                                             <hr>
                                             <span>
@@ -614,11 +604,24 @@ transition: all 0.2s;
                                                     <input style="display: none;" type="file"/>
                                                 </label>
                                                 <br>
-                                                {%for comment in home.comments.all%}
                                                 <ul>
-                                                    <div>sadasdasdas</div>
+                                                    <div>
+                                                        <div>
+                                                            {%for comment in community.comments.all %}
+                                                                {% if comment.image %}
+                                                                <div class="comment_commenter_name">{{comment.name | linebreaks}}</div>
+                                                                <div class="comment">{{comment.comment | linebreaks}}</div>
+                                                                <div class="image_bord"><img src="/media/{{comment.image.id}}/" alt="">{{comment.image | linebreaks}}</div>
+                                                                {% else %} 
+                                                                <div class="comment_commenter_name">{{comment.name | linebreaks}}</div>
+                                                                <div class="comment">{{comment.comment | linebreaks}}</div>
+                                                                {% endif %}
+                                                                {%empty%}
+                                                                <div>Not Comments</div>
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
                                                 </ul>
-                                                {% endfor %}
                                             </span>
                                         </div>
                                         <div class="class_information">
@@ -787,9 +790,15 @@ transition: all 0.2s;
         const buttonOpen = document.getElementById("modalOpen");
         const modal = document.getElementById("modal");
         const buttonClose = document.querySelector(".modalClose");
+        const modalContent = document.getElementById("modal-content")
         buttonOpen.addEventListener("click", () => {
-            modal.style.display = "block";
 
+            fetch('comment_post.html')
+            .then(response => response.text())
+            .then(data => {
+              modalContent.innerHTML = data;
+              modal.style.display = 'block';
+            });
         });
         buttonClose.addEventListener("click", () => {
             modal.style.display = "none";

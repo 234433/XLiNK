@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/css/6-1-7.css">
+    <title>XLiNK | Home</title>
+    {% load crispy_forms_tags %}
+<style>
+.modal-content {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    margin-top: -150px;
+    margin: 15% auto;
+    width: 450px;
+    box-shadow: 0 2px 7px black;
+    animation-name: popup;
+    animation-duration: 0.05s;
+}
+@keyframes popup {
+from {
+    transform: translateY(150%);
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}
+.modal-header {
+    border-top: 10px;
+    background: rgb(78, 17, 247);
+    padding: 3px 15px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+          
+.modal-header h1 {
+    font-size: 17px;
+    margin: 10px 0;
+}
+          
+#modalClose {
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+          
+.modal-body {
+    padding: 15px 25px;
+    color: black;
+}
+{% comment %} .post_form{
+    width: 430px;
+    height: 700px;
+} {% endcomment %}
+    </style>
+</head>
+<body class="container py-5">
+    <center>
+        <div  class="post_form">
+            <div class="modal-header">
+                <h1><center>Comment作成</center></h1>
+                {% comment %} <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>{% endcomment %}
+                <span class="modalClose" aria-hidden="true">&times;</span>
+              </div>
+              <div class="modal-body">
+                <div>
+                    <form class="forms" enctype="multipart/form-data" method="post">
+                        {% csrf_token %}
+                        {{form | crispy}}
+                        <div style="text-align: center; font-size: 17.5;">
+                            <button class="btn btn-primary" type="submit">create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </center>
+    {% comment %} <script type="text/javascript">
+        const buttonOpen = document.getElementById("modalOpen");
+        const modal = document.getElementById("modal");
+        const buttonClose = document.getElementById("modalClose");
+        const modalOverlay = document.getElementById('modal-overlay');
+        buttonOpen.addEventListener("click", () => {
+            fetch('comment_post.html')
+            .then(response => response.text())
+            .then(data => {
+              modalContent.innerHTML = data;
+              modalOverlay.style.display = 'block';
+            });
+
+        });
+        buttonClose.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+        //モーダルコンテンツ以外がクリックされた時
+        buttoinClose.addEventListener("click", (e) => {
+            if (e.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script> {% endcomment %}
+</body>
+</html>
