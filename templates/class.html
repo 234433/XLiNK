@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/css/6-1-7.css">
-    <title>XLiNK | Home</title>
+    <title>XLiNK | {{community.class_name}}</title>
     {% load crispy_forms_tags %}
     <style>
 .head{
@@ -49,7 +49,7 @@
 }
 .word{
     position: relative;
-    margin-left: 40px;
+    margin-left: -77px;
     margin-top: 8px;
     font-size: 10px;
 }
@@ -187,7 +187,7 @@
     margin-top: -12.5px; 
     display: flex; 
     width: 500px;
-    margin-left: 240px;
+    margin-left: 150px;
   }
   .tab2{
     flex-grow: 1;
@@ -229,7 +229,7 @@
     width: 1054px;
     height: 390.37px;
     margin-left: 17px;
-    margin-top: 30px;
+    margin-top: 7.5px;
     top: 180px;
 }
 .user_image{
@@ -238,13 +238,10 @@
     border-radius: 10px;
 }
 .bord{
-    border:solid 3px rgb(229, 228, 228);
+    {% comment %} border:solid 3px rgb(229, 228, 228); {% endcomment %}
     border-radius: 10px;
-    margin-top: 0px;
-    background: white;
-    width: 1094px;
-    height: 1800px;
-    margin-left: 10px;
+    margin-top: -30px;
+    margin-left: 30px;
 }
  .main_bord3{
     margin-top: -75px;
@@ -252,8 +249,9 @@
 } 
 .title_bord{
     margin: 10px;
-    margin-top: 0px;
-    margin-left: 240px;
+    margin-top: -80px;
+    top: -30px;
+    margin-left: 150px;
     font-size: 50px;
     height: 70px;
 }
@@ -267,39 +265,50 @@
     height: 40px;
 }
 .post_talk_bord{
+    overflow-y: scroll;
+    border-top:none;
     border:solid 3px rgb(229, 228, 228);
     background: rgb(241, 240, 240);
     border-radius: 10px;
-    width: 900px;
-    height: 1080px;
-    margin-left:100px;
+    width: 1000px;
+    height: 1400px;
+    margin-left:40px;
     margin-top: 0px;
 }
 .class_information{
+    padding: 15px 15px;
     border:solid 3px rgb(229, 228, 228);
     background: white;
     border-radius: 10px;
-    width: 275px;
-    height: 50px;
-    margin-left: 525px;
+    width: 325px;
+    height: 375px;
+    margin-left: 650px;
     margin-top: -120px;
 }
 .main_information{
     border-bottom: solid 5px rgb(78, 17, 247);
     width: 150px;
     margin-top:20px;
-s
 }
+.adkjeccc{
+    margin-left: -100px;
+    width: 200px;
+    height: 150px;
+    background: white;
+}
+
 .manager_name{
+
     width: 150px;
     top: -10px;
     font-size: 22.5px;
 }
 .class_explain{
+    border-radius: 10px;
     width: 320px;
     margin-top: -10px;
     margin-left: -25px;
-    font-size: 20px;
+    font-size: 15px;
 }
 .hr_style{
     width: 170px;
@@ -329,17 +338,17 @@ s
     border-radius: 10px;
     margin-left: 25px;
     margin-top: 25px;
-    width: 450px;
+    width: 550px;
     height: 125px;
     background: white;
+    border: solid 3px rgb(229, 228, 228);
 }
 .post_input{
-    width: 350px;
+    width: 450px;
     height: 40px;
     margin-left: 10px;
     margin-top: 20px;
     border-radius: 10px;
-    border:solid 3px white;
     background: white;
 }
 .vroom{
@@ -357,7 +366,7 @@ s
     margin-left: 25px;
 }
 .class_image{
-    margin-top: -25px;
+    margin-top: -30px;
     border: 3px solid white;
     background: grey;  
     margin-left: 130px;
@@ -443,6 +452,56 @@ transition: all 0.2s;
     padding: 15px 25px;
     color: black;
 }
+.comment_bord{
+    border-radius: 5px;
+    width: 550px;
+    height: 650px;
+    background: white;
+    border: 3px solid rgb(229, 228, 228);
+}
+.commet_post{
+    border-radius: 5px;
+
+    width: 300px;
+    height: 500px;
+    background: white;
+}
+.commenter_name{
+    margin-left: -175px;
+
+}
+.comment{
+    margin-left: -20px;
+    text-align: center;
+    margin-top: -45px;
+}
+.image{
+    margin-left: -50px;
+    width: 300px;
+    height:500px;
+
+}
+.bord_main{
+    border:solid 3px rgb(229, 228, 228);
+    border-radius: 10px;
+    margin-top: -115px;
+    background: white;
+    width: 1094px;
+    height:215px;
+    margin-left: -5px;
+}
+.bord_main2{
+    margin-top: 150px;
+}
+.bord_main_image{
+    top: -40px;
+}
+.if_bord{
+    width: 550px; 
+    height: 100px; 
+    background: white; 
+    text-align: center;
+}
     </style>
 </head>
 <body class="container py-5" style="background:  rgb(241, 240, 240);">
@@ -454,7 +513,7 @@ transition: all 0.2s;
                         <div class="headline"> 
                             <b class="x">X.</b><b class="link">LiNK</b>
                         </div>
-                        <p class="word">あなただけのコミュニティーを。</p>
+                        {% comment %} <p class="word">あなただけのコミュニティーを。</p> {% endcomment %}
                     </div>
                 </h1>
             </div>
@@ -510,7 +569,7 @@ transition: all 0.2s;
             </li>
             <br>
             <li>
-                <div style="margin-left: 50px; margin-top: -50px;">
+                <div class="asjn" style="margin-left: 50px; margin-top: -50px;">
                     <div class="main_information"><b><h4>Class管理者</h4><b></div>
                     <div class="manager_name">
                         <h3><a href="/class/manager/id={{community.id}}/">{{community.manager_name}}</a></h3>
@@ -540,41 +599,45 @@ transition: all 0.2s;
             <div class="panel-group">
                 <div class="panel tab-A is-show">
                     <div class="bord">
-                        <div>
+                        <span class="bord_main_image">
                             <img src="/media/{{community.backimage}}" class="image_bord">{{ community.backimage.id | linebreaks }}
+                        </span>
+                        <div class="bord_main">
+                            <div class="bord_main2">
+                                <b><div class="title_bord">{{community.class_name}}</div></b>
+                                <hr style="width: 900px;margin-left: 95px;">
+                                <ul class="tab2-group">
+                                    <li class="tab2 tab2-A is-active2">
+                                        <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                                            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                                        </svg>
+                                    </li>
+                                    <li class="tab2 tab2-B">
+                                        <svg style=" margin-left: 0px; margin-top: 4px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                                        </svg>
+                                    </li>       
+                                    <li class="tab2 tab2-C">
+                                        <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+                                            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
+                                        </svg>
+                                    </li>
+                                    <li class="tab2 tab2-D">
+                                        <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                        </svg>
+                                    </li>           
+                                </ul>
+                            </div>
                         </div>
-                        <div><img class="class_image" src="" alt=""></div>
+                        <br>
+                        <br>
+                        <br>
                         <div class="main_bord3">
-                            <b>
-                                <div class="title_bord"><a href="" id="check" class="class_name">{{community.class_name}}</a></div>
-                            </b>
-                            <hr style="width: 900px;margin-left: 95px;">
-                            <ul class="tab2-group">
-                                <li class="tab2 tab2-A is-active2">
-                                    <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-                                        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-                                    </svg>
-                                </li>
-                                <li class="tab2 tab2-B">
-                                    <svg style=" margin-left: 0px; margin-top: 4px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
-                                        <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                                    </svg>
-                                </li>       
-                                <li class="tab2 tab2-C">
-                                    <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
-                                        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
-                                    </svg>
-                                </li>
-                                <li class="tab2 tab2-D">
-                                    <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                                    </svg>
-                                </li>           
-                            </ul>
                             <div class="panel2-group">
                                 <div class="panel2 tab2-A is-show2">
-                                    <div class="post_talk_bord">
+                                    <div>{% comment %} <div class="post_talk_bord"> {% endcomment %}
                                         <div class="class_post_field">
                                             <div class="field_1">
                                                 <span class="post_icon">
@@ -607,15 +670,13 @@ transition: all 0.2s;
                                                     <div>
                                                     {%for comment in community.comments.all %}
                                                         {% if comment.image %}
-                                                        <div class="copmment_bord">
-                                                            <span>
-                                                                <div class="comment_commenter_name">{{comment.user|linebreaks}}</div>
-                                                            </span>
-                                                            <hr>
-                                                            <span>
-                                                                <div class="comment">{{comment.comment|linebreaks}}</div>
-                                                                <div class="image_bord">
-                                                                    <img src="/image/{{comment.image.id}}/" alt="">
+                                                        <br>
+                                                        <div class="comment_bord">
+                                                            <span class="commet_post">
+                                                                <div class="commenter_name"><a href="">{{comment.user|linebreaks}}</a></div>
+                                                                <div class="comment">{{comment.text|linebreaks}}</div>
+                                                                <div class="image">
+                                                                    <img src="/media/image/{{comment.image.id}}/" alt="">
                                                                 </div>
                                                             </span>
                                                         </div>
@@ -626,14 +687,14 @@ transition: all 0.2s;
                                                         </div>
                                                         {% endif %}
                                                         {%empty%}
-                                                        <div>Not Comments</div>
+                                                        <div class="if_bord"><h2>I'm Sorry Not Comments</h2></div>
                                                     {% endfor %}
                                                     </div>
                                                 </ul>
                                             </span>
                                         </div>
                                         <div class="class_information">
-                                            <div class="kscnb"><h4><b>classの基本情報</b></h4></div>
+                                            <div><h4><b>classの基本情報</b></h4></div>
                                             <ul>
                                                 <li>
                                                     <div style="margin-left: 30px;">
@@ -646,13 +707,13 @@ transition: all 0.2s;
                                                 </li>
                                                 <li>
                                                     <div class="class_explain">
+                                                        <div style="padding: 15px 15px; margin-left: 15px;"><h5>Classの情報</h5></div>
                                                         <b>
-                                                            {{community.explain | linebreaks}}
+                                                            <div style="margin-top: -25px;">{{community.explain | linebreaks}}</div>
                                                         </b>
                                                     </div>
                                                 </li>
                                             </ul>
-                                            
                                         </div>
                                     </div>
                                 </div>

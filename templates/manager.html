@@ -101,14 +101,13 @@
     margin-top: 50px;
 }
 .sub_bord{ 
-    display: fixed;
-    border:solid 3px rgb(229, 228, 228);
+    border:solid 1.5px rgb(229, 228, 228);
     background: white;
     border-radius: 10px;
     width: 1200px;
-    height: 925px;
+    height: 250px;
     /* margin-left: -45px; */
-    margin-top: -280px;
+    margin-top: -310px;
     margin-left: 230px;
 }
 .image{
@@ -143,7 +142,7 @@
     width: 160px;
     height: 30px;
     border-radius: 50px;
-    margin-top: -8px;
+    margin-top: 20px;
     margin-left: 80px;
     font-size: 20px;
     display: block;
@@ -481,13 +480,13 @@
 .sub_class2{
     display: flex;
     overflow-y: scroll;
+    border-top:none;
     border-radius: 5px;
     margin-top: -10px;
     height:400px;
     width: 850px;
     margin-left: 0px;
     border:solid 1px rgb(176, 175, 175);
-    border-top:none;
     background:rgb(255, 255, 255);
 }
 .create_button{
@@ -498,7 +497,6 @@
     margin-top: -30px;
 }
 .new_post_bord{
-    overflow-y: scroll;
     width: 550px;
     height: 600px;
     margin-left: -35px;
@@ -551,7 +549,7 @@
         <img class="image" src="/media/{{group.image}}/" alt="">
         <div class="sub_bord">
             <div class="title_bord">
-                <div id="follow_button" class="follow" onclick="f()">+ Offer</div>
+                {% comment %} <div id="follow_button" class="follow" onclick="f()">+ Offer</div> {% endcomment %}
                 <a class="name_bord">
                     <b style="top: 20px;">
                        {{group.manager_name}}
@@ -568,7 +566,8 @@
                             </ul>
                         </b>
                     </div>
-                    <hr class="hr_style">
+                    <br>
+                    <br>
                     <br>
                     <div class="panel-group">
                         <div class="panel tab-A is-show">

@@ -68,10 +68,10 @@ class Group(models.Model):
     class Meta:
         verbose_name_plural = 'ClassName'
 class Comment(models.Model):
-    Destination = models.ForeignKey(Group, null=True,blank=True ,on_delete=models.CASCADE)
+    Destination = models.ForeignKey(Group,related_name="comments",verbose_name="投稿先" ,null=True,blank=True ,on_delete=models.CASCADE)
     user = models.CharField(max_length=25,blank=True, null=True, verbose_name="ユーザー名")
-    text = models.TextField(max_length=180, blank=True)
-    image = models.ImageField(upload_to='image/', verbose_name="Image")
+    text = models.TextField(max_length=180, blank=True, verbose_name="コメント")
+    image = models.ImageField(upload_to='image/', verbose_name="写真")
     def __str__(self):
         return str(self.user)
     class Meta:
