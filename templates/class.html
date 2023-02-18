@@ -118,7 +118,7 @@
     left: 0px;
     top: 106.25px;
     background: rgb(241, 240, 240);;
-    width: 350px;
+    width: 370px;
     height: 925px;
 } 
 .bord{
@@ -187,7 +187,7 @@
     margin-top: -12.5px; 
     display: flex; 
     width: 500px;
-    margin-left: 150px;
+    margin-left: 50px;
   }
   .tab2{
     flex-grow: 1;
@@ -226,11 +226,13 @@
     border:solid 3px rgb(229, 228, 228);
     background: rgb(241, 240, 240);
     border-radius: 10px;
-    width: 1054px;
-    height: 390.37px;
     margin-left: 17px;
     margin-top: 7.5px;
     top: 180px;
+    width: 598px;
+    height: 199.33px;
+    {% comment %} width: 1054px;
+    height: 390.37px; {% endcomment %}
 }
 .user_image{
     border:solid 3px rgb(229, 228, 228);
@@ -241,7 +243,7 @@
     {% comment %} border:solid 3px rgb(229, 228, 228); {% endcomment %}
     border-radius: 10px;
     margin-top: -30px;
-    margin-left: 30px;
+    margin-left: 0px;
 }
  .main_bord3{
     margin-top: -75px;
@@ -249,9 +251,9 @@
 } 
 .title_bord{
     margin: 10px;
-    margin-top: -80px;
-    top: -30px;
-    margin-left: 150px;
+    margin-top: 70px;
+    top: -10px;
+    margin-left: 100px;
     font-size: 50px;
     height: 70px;
 }
@@ -317,7 +319,7 @@
 .hr_style2{
     width: 190px;
     margin-top: -5px;
-    margin-left: -7px;
+    margin-left: -10px;
 }
 .kscnb{
     margin-top: 10px;
@@ -336,7 +338,7 @@
 }
 .class_post_field{
     border-radius: 10px;
-    margin-left: 25px;
+    margin-left: 15px;
     margin-top: 25px;
     width: 550px;
     height: 125px;
@@ -486,14 +488,16 @@ transition: all 0.2s;
     border-radius: 10px;
     margin-top: -115px;
     background: white;
-    width: 1094px;
-    height:215px;
     margin-left: -5px;
+    width: 604px;
+    height: 200px;
+    {% comment %} width: 1094px;
+    height:215px; {% endcomment %}
 }
-.bord_main2{
-    margin-top: 150px;
+.class_bord{
+    top: -150px;
 }
-.bord_main_image{
+.backimage{
     top: -40px;
 }
 .if_bord{
@@ -502,8 +506,40 @@ transition: all 0.2s;
     background: white; 
     text-align: center;
 }
+div.sticky{
+    position: fixed;
+    top: 226px;
+    height: 75px; 
+    width: 100%%;
+}
+div.sticky .title_bord{
+    margin-top: -7.5px;
+    margin-left: 75px;
+
+}
+div.sticky hr{
+    display: none;
+}
+div .sticky .tab2-group{
+    display: none;
+    
+}
+nav.sticky{
+    position: fixed;
+    padding: 15px 15px;
+    border:solid 3px rgb(229, 228, 228);
+    background: white;
+    width: 325px;
+    height: 375px;
+    margin-left: 650px;
+    top:335px;
+}
+.community_name{
+    margin-top: 15px;
+}
     </style>
 </head>
+{% comment %} style="background:  rgb(241, 240, 240);" {% endcomment %}
 <body class="container py-5" style="background:  rgb(241, 240, 240);">
     <div>
         <header class="container py-5">
@@ -599,13 +635,17 @@ transition: all 0.2s;
             <div class="panel-group">
                 <div class="panel tab-A is-show">
                     <div class="bord">
-                        <span class="bord_main_image">
-                            <img src="/media/{{community.backimage}}" class="image_bord">{{ community.backimage.id | linebreaks }}
-                        </span>
-                        <div class="bord_main">
-                            <div class="bord_main2">
-                                <b><div class="title_bord">{{community.class_name}}</div></b>
-                                <hr style="width: 900px;margin-left: 95px;">
+                        <nav class="user_bord">
+                            <span class="backimage">
+                                <img src="/media/{{community.backimage}}" class="image_bord">{{ community.backimage.id | linebreaks }}
+                            </span>
+                            <div class="bord_main">
+                                <div class="title_bord">
+                                    <b>
+                                        <span class="community_name">{{community.class_name}}</span>
+                                    </b>
+                                </div>
+                                <hr style="width: 900px;margin-left: 35px; margin-top: -17.5px;">
                                 <ul class="tab2-group">
                                     <li class="tab2 tab2-A is-active2">
                                         <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
@@ -630,7 +670,7 @@ transition: all 0.2s;
                                     </li>           
                                 </ul>
                             </div>
-                        </div>
+                        </nav>
                         <br>
                         <br>
                         <br>
@@ -641,7 +681,7 @@ transition: all 0.2s;
                                         <div class="class_post_field">
                                             <div class="field_1">
                                                 <span class="post_icon">
-                                                    <svg style="position: relative; margin-left: 25px; margin-top: 0px;" xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                    <svg style="margin-left: 25px; margin-top: 0px;" xmlns="http://www.w3.org/2000/svg" width="31" height="31" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                                                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                                     </svg>
@@ -676,7 +716,7 @@ transition: all 0.2s;
                                                                 <div class="commenter_name"><a href="">{{comment.user|linebreaks}}</a></div>
                                                                 <div class="comment">{{comment.text|linebreaks}}</div>
                                                                 <div class="image">
-                                                                    <img src="/media/image/{{comment.image.id}}/" alt="">
+                                                                    <img src="./media/image/{{comment.image.id}}/" alt="">
                                                                 </div>
                                                             </span>
                                                         </div>
@@ -687,13 +727,13 @@ transition: all 0.2s;
                                                         </div>
                                                         {% endif %}
                                                         {%empty%}
-                                                        <div class="if_bord"><h2>I'm Sorry Not Comments</h2></div>
+                                                        <div class="if_bord"><h2><b>I'm Sorry Not Comments</b></h2></div>
                                                     {% endfor %}
                                                     </div>
                                                 </ul>
                                             </span>
                                         </div>
-                                        <div class="class_information">
+                                        <nav class="class_information">
                                             <div><h4><b>classの基本情報</b></h4></div>
                                             <ul>
                                                 <li>
@@ -714,7 +754,7 @@ transition: all 0.2s;
                                                     </div>
                                                 </li>
                                             </ul>
-                                        </div>
+                                        </nav>
                                     </div>
                                 </div>
                                 <div class="panel2 tab2-B">
@@ -813,7 +853,7 @@ transition: all 0.2s;
             </div>
         </div>
     </div>
-    <script type="text/javascript">
+    <script>
         document.addEventListener('DOMContentLoaded', function(){
             // タブに対してクリックイベントを適用
             const tabs = document.getElementsByClassName('tab');
@@ -878,5 +918,24 @@ transition: all 0.2s;
                 modal.style.display = "none";
             }
         });
+        const bordmain = document.querySelector(".bord_main");
+        const bordmain_sticky = document.querySelector(".bord_main sticky")
+        const backimage = document.querySelector(".backimage");
+        const classinformation = document.querySelector(".class_information")
+        //bord_mainクラスのものがbackimageクラスの位置に来たら固定する。
+        window.addEventListener("scroll", () =>{
+            if(window.pageYOffset >= backimage.offsetTop) {
+                bordmain.classList.add("sticky");
+            }else{
+                bordmain.classList.remove("sticky");
+            }
+        })
+        window.addEventListener("scroll" , () =>{
+            if(window.pageYOffset >= bordmain.offsetTop){
+                classinformation.classList.add("sticky");
+            }else{
+                classinformation.classList.remove("sticky");
+            }
+        })
     </script>
 </body>
