@@ -184,16 +184,15 @@
 
 }
 .tab2-group{
-    margin-top: -12.5px; 
+    margin-top: -5px; 
     display: flex; 
     width: 500px;
-    margin-left: 50px;
+    margin-left: 75px;
   }
   .tab2{
     flex-grow: 1;
     padding:5px;
     list-style:none;
-    border:solid 0.5px rgb(241, 240, 240);
     width: 500px;
     text-align:center;
     cursor:pointer;
@@ -222,18 +221,6 @@
   .panel2.is-show2{
     display:block;
 }
-.image_bord{
-    border:solid 3px rgb(229, 228, 228);
-    background: rgb(241, 240, 240);
-    border-radius: 10px;
-    margin-left: 17px;
-    margin-top: 7.5px;
-    top: 180px;
-    width: 598px;
-    height: 199.33px;
-    {% comment %} width: 1054px;
-    height: 390.37px; {% endcomment %}
-}
 .user_image{
     border:solid 3px rgb(229, 228, 228);
     background: rgb(241, 240, 240);
@@ -249,14 +236,6 @@
     margin-top: -75px;
 
 } 
-.title_bord{
-    margin: 10px;
-    margin-top: 70px;
-    top: -10px;
-    margin-left: 100px;
-    font-size: 50px;
-    height: 70px;
-}
 .create_tab_headline{
     margin-left: -20px;
 }
@@ -489,10 +468,30 @@ transition: all 0.2s;
     margin-top: -115px;
     background: white;
     margin-left: -5px;
-    width: 604px;
-    height: 200px;
-    {% comment %} width: 1094px;
-    height:215px; {% endcomment %}
+    width: 1094px;
+    height:160px;
+    {% comment %} width: 630px;
+    height: 150px; {% endcomment %}
+}
+.backimages{
+    border:solid 3px rgb(229, 228, 228);
+    background: rgb(241, 240, 240);
+    border-radius: 10px;
+    margin-left: 15px;
+    margin-top: 7.5px;
+    top: 180px;
+    width: 1054px;
+    height: 390.37px;
+    {% comment %} width: 650px;
+    height: 199.33px; {% endcomment %}
+}
+.title_bord{
+    margin: 10px;
+    margin-top: 40px;
+    top: -10px;
+    margin-left: 100px;
+    font-size: 50px;
+    height: 70px;
 }
 .class_bord{
     top: -150px;
@@ -506,24 +505,30 @@ transition: all 0.2s;
     background: white; 
     text-align: center;
 }
-div.sticky{
+div.sticky {
     position: fixed;
-    top: 226px;
-    height: 75px; 
+    top: 224px;
+    height: 90px; 
     width: 100%%;
+    z-index: 1;
 }
 div.sticky .title_bord{
-    margin-top: -7.5px;
+    margin-top: -10px;
+    margin-bottom: 10px;
     margin-left: 75px;
-
+    font-size: 40px;
+    z-index: 1;
+}
+div.sticky.community_name{
+    top: 10px;
 }
 div.sticky hr{
     display: none;
 }
 div .sticky .tab2-group{
-    display: none;
-    
-}
+    top: -5px;
+    margin-top: -25px; 
+} 
 nav.sticky{
     position: fixed;
     padding: 15px 15px;
@@ -532,14 +537,22 @@ nav.sticky{
     width: 325px;
     height: 375px;
     margin-left: 650px;
-    top:335px;
+    top:350px;
+    z-index: 1;
+}
+div.sticky.community_name{
+    top: 50px;
 }
 .community_name{
-    margin-top: 15px;
+    margin-top: 20px;
+}
+.hr_class_name{
+    width: 900px;
+    margin-left: 35px; 
+    margin-top: -15px;
 }
     </style>
 </head>
-{% comment %} style="background:  rgb(241, 240, 240);" {% endcomment %}
 <body class="container py-5" style="background:  rgb(241, 240, 240);">
     <div>
         <header class="container py-5">
@@ -549,7 +562,6 @@ nav.sticky{
                         <div class="headline"> 
                             <b class="x">X.</b><b class="link">LiNK</b>
                         </div>
-                        {% comment %} <p class="word">あなただけのコミュニティーを。</p> {% endcomment %}
                     </div>
                 </h1>
             </div>
@@ -635,38 +647,43 @@ nav.sticky{
             <div class="panel-group">
                 <div class="panel tab-A is-show">
                     <div class="bord">
-                        <nav class="user_bord">
+                        <nav class="nervous">
                             <span class="backimage">
-                                <img src="/media/{{community.backimage}}" class="image_bord">{{ community.backimage.id | linebreaks }}
+                                <img src="/media/{{community.backimage}}" class="backimages">{{ community.backimage.id | linebreaks }}
                             </span>
+                            <br>
                             <div class="bord_main">
                                 <div class="title_bord">
-                                    <b>
-                                        <span class="community_name">{{community.class_name}}</span>
-                                    </b>
+                                    <span class="community_name">
+                                        <b>{{community.class_name}}</b>
+                                    </span>
                                 </div>
-                                <hr style="width: 900px;margin-left: 35px; margin-top: -17.5px;">
+                                <hr class="hr_class_name">
                                 <ul class="tab2-group">
                                     <li class="tab2 tab2-A is-active2">
-                                        <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                                        {% comment %} <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
                                             <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-                                        </svg>
+                                        </svg> {% endcomment %}
+                                        <i>Home</i>
                                     </li>
                                     <li class="tab2 tab2-B">
-                                        <svg style=" margin-left: 0px; margin-top: 4px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                                        {% comment %} <svg style=" margin-left: 0px; margin-top: 4px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
                                             <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-                                        </svg>
+                                        </svg> {% endcomment %}
+                                        <i>TalkRoom</i>
                                     </li>       
                                     <li class="tab2 tab2-C">
-                                        <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+                                        {% comment %} <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
                                             <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
-                                        </svg>
+                                        </svg> {% endcomment %}
+                                        <i>OfficalData</i>
                                     </li>
                                     <li class="tab2 tab2-D">
-                                        <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                                        {% comment %} <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                                        </svg>
+                                        </svg> {% endcomment %}
+                                        <i>Follower</i>
                                     </li>           
                                 </ul>
                             </div>
@@ -853,7 +870,7 @@ nav.sticky{
             </div>
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function(){
             // タブに対してクリックイベントを適用
             const tabs = document.getElementsByClassName('tab');
@@ -919,23 +936,23 @@ nav.sticky{
             }
         });
         const bordmain = document.querySelector(".bord_main");
-        const bordmain_sticky = document.querySelector(".bord_main sticky")
-        const backimage = document.querySelector(".backimage");
+        const community_name = document.querySelector(".community_name")
+        const tab2group = document.querySelector(".tab2-group");
         const classinformation = document.querySelector(".class_information")
-        //bord_mainクラスのものがbackimageクラスの位置に来たら固定する。
+        //bord_mainクラスのものがtab2-groupクラスの位置に来たら固定する。
         window.addEventListener("scroll", () =>{
-            if(window.pageYOffset >= backimage.offsetTop) {
+            if(window.pageYOffset >= tab2group.offsetTop) {
                 bordmain.classList.add("sticky");
             }else{
                 bordmain.classList.remove("sticky");
             }
-        })
+        });
         window.addEventListener("scroll" , () =>{
-            if(window.pageYOffset >= bordmain.offsetTop){
+            if(window.pageYOffset >= tab2group.offsetTop){
                 classinformation.classList.add("sticky");
             }else{
                 classinformation.classList.remove("sticky");
             }
-        })
+        });
     </script>
 </body>
