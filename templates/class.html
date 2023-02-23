@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/css/6-1-7.css">
-    <title>XLiNK | {{community.class_name}}</title>
+    <title>XLiNK | {{community.name}}</title>
     {% load crispy_forms_tags %}
     <style>
 .head{
@@ -118,7 +118,7 @@
     left: 0px;
     top: 106.25px;
     background: rgb(241, 240, 240);;
-    width: 370px;
+    width: 480px;
     height: 925px;
 } 
 .bord{
@@ -184,10 +184,10 @@
 
 }
 .tab2-group{
-    margin-top: -5px; 
+    margin-top: 95px; 
     display: flex; 
     width: 500px;
-    margin-left: 75px;
+    margin-left: 55px;
   }
   .tab2{
     flex-grow: 1;
@@ -230,14 +230,14 @@
     {% comment %} border:solid 3px rgb(229, 228, 228); {% endcomment %}
     border-radius: 10px;
     margin-top: -30px;
-    margin-left: 0px;
+    margin-left: 100px;
 }
  .main_bord3{
     margin-top: -75px;
 
 } 
 .create_tab_headline{
-    margin-left: -20px;
+    margin-left: 155px;
 }
 .border1{
     border:solid 3px rgb(241, 240, 240);
@@ -253,7 +253,7 @@
     border-radius: 10px;
     width: 1000px;
     height: 1400px;
-    margin-left:40px;
+    margin-left:0px;
     margin-top: 0px;
 }
 .class_information{
@@ -261,14 +261,20 @@
     border:solid 3px rgb(229, 228, 228);
     background: white;
     border-radius: 10px;
-    width: 325px;
-    height: 375px;
+    width: 550px;
+    height: 300px;
+    margin-left: 0px;
+    margin-top: 0px;
+    {% comment %} 
     margin-left: 650px;
     margin-top: -120px;
+    width: 325px;
+    height: 375px; 
+    {% endcomment %}
 }
 .main_information{
     border-bottom: solid 5px rgb(78, 17, 247);
-    width: 150px;
+    width: 200px;
     margin-top:20px;
 }
 .adkjeccc{
@@ -442,7 +448,6 @@ transition: all 0.2s;
 }
 .commet_post{
     border-radius: 5px;
-
     width: 300px;
     height: 500px;
     background: white;
@@ -452,9 +457,8 @@ transition: all 0.2s;
 
 }
 .comment{
-    margin-left: -20px;
-    text-align: center;
-    margin-top: -45px;
+    margin-top: -40px;
+    margin-left:40px;
 }
 .image{
     margin-left: -50px;
@@ -467,9 +471,9 @@ transition: all 0.2s;
     border-radius: 10px;
     margin-top: -115px;
     background: white;
-    margin-left: -5px;
-    width: 1094px;
-    height:160px;
+    margin-left: 5px;
+    width: 598px;
+    height:230px;
     {% comment %} width: 630px;
     height: 150px; {% endcomment %}
 }
@@ -477,17 +481,17 @@ transition: all 0.2s;
     border:solid 3px rgb(229, 228, 228);
     background: rgb(241, 240, 240);
     border-radius: 10px;
-    margin-left: 15px;
+    margin-left: 5px;
     margin-top: 7.5px;
     top: 180px;
-    width: 1054px;
-    height: 390.37px;
-    {% comment %} width: 650px;
-    height: 199.33px; {% endcomment %}
+    width: 598px;
+    height: 225px; 
+    {% comment %} width: 1000px;
+    height: 390.37px; {% endcomment %}
 }
 .title_bord{
     margin: 10px;
-    margin-top: 40px;
+    margin-top: 25px;
     top: -10px;
     margin-left: 100px;
     font-size: 50px;
@@ -520,6 +524,7 @@ div.sticky .title_bord{
     z-index: 1;
 }
 div.sticky.community_name{
+    font-size: 20px;
     top: 10px;
 }
 div.sticky hr{
@@ -527,8 +532,11 @@ div.sticky hr{
 }
 div .sticky .tab2-group{
     top: -5px;
-    margin-top: -25px; 
+    margin-top: -20px; 
 } 
+div.sticky small{
+    display: none;
+}
 nav.sticky{
     position: fixed;
     padding: 15px 15px;
@@ -545,11 +553,62 @@ div.sticky.community_name{
 }
 .community_name{
     margin-top: 20px;
+    margin-left: -50px;
+    font-size: 38px;
 }
 .hr_class_name{
-    width: 900px;
     margin-left: 35px; 
     margin-top: -15px;
+}
+.aside_bord{
+    margin-left: 225px;
+}
+.class_info{
+font-size: 15px;
+    margin-top: -12.5px; 
+    margin-left: -75px;
+    width: 555px;
+}
+.follow{
+    background: linear-gradient(rgb(115, 102, 255) ,rgb(78, 17, 247));
+    color: rgb(255, 255, 255); 
+    border:solid 5px linear-gradient(rgb(115, 102, 255) ,rgb(78, 17, 247));
+    width: 100px;
+    height: 25px;
+    border-radius: 5px;
+    margin-top: -40px;
+    margin-left: 370px;
+    font-size: 17.5px;
+    display: block;
+    text-align:center;
+}
+.comment_bord{
+    border-radius: 10px;
+    width: 550px;
+    height: 200px;
+    background: white;
+
+}
+.comment_commenter_name{
+    margin-left: -365px;
+    margin-top: -50px;
+}
+.comment_time{
+    margin-left: 65px;
+    margin-top: -40px;
+}
+.comment{
+    margin-top: -45px;
+    width: 500px;
+    word-wrap: break-word;
+}
+.image_bord{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: black;
+    margin-left: 15px;
+    margin-top: 15px;
 }
     </style>
 </head>
@@ -570,78 +629,115 @@ div.sticky.community_name{
             <div class="class_create">
                 <h2 class="create_tab_headline">ClassPage</h2>
             </div>
-            <li style="color: rgb(241, 240, 240);">
-            <a href="/profile.html/id={{user.id}}/">
-                <button class="border_1">
-                    <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                    </svg>
-                    <h6 class="account">{{user}}</h6>
-                </button>
-            </a>
-            </li>
-            <br> 
-            <li style="color: rgb(241, 240, 240);">
-                <a href="/">
-                    <button class="border_2">
-                        <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-                            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-                        </svg>
-                        <h5 class="home">Home</h5>
-                    </button>
-                </a>
-            </li> 
-            <br>
-            <li style="color: rgb(241, 240, 240);">
-                <a class="side_name" href="/community/">
-                    <button class="border_2">
-                        <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                            <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
-                            <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
-                        </svg>
-                        <h5 class="home">community</h5>
-                    </button>
-                </a>
-            </li>
-            <li>
-                <div style="margin-left: 50px; margin-top: -25px;">
-                    <div class="main_information"><b><h4>Class名</h4></b></div>
-                    <div class="class_name">
-                        <h3>{{community.class_name}}</h3>
-                        <hr class="hr_style2">
-                    </div>
-                </div>
-            </li>
-            <br>
-            <li>
-                <div class="asjn" style="margin-left: 50px; margin-top: -50px;">
-                    <div class="main_information"><b><h4>Class管理者</h4><b></div>
-                    <div class="manager_name">
-                        <h3><a href="/class/manager/id={{community.id}}/">{{community.manager_name}}</a></h3>
-                        <hr class="hr_style">
-                    </div>
-                </div>
-            </li>
-            <br>
-            <div>
-                <div  class="container py-5">
-                    <div id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-                        <div id="modal-overlay">
-                            <div id="modal-content" role="document">
-                                {% include 'comment_post.html' %}
+            <ul class="aside_bord">
+                <li style="color: rgb(241, 240, 240);">
+                    <a href="/profile.html/id={{user.id}}/">
+                        <button class="border_1">
+                            <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                            </svg>
+                            <h6 class="account">{{user}}</h6>
+                        </button>
+                    </a>
+                    </li>
+                    <br> 
+                    <li style="color: rgb(241, 240, 240);">
+                        <a href="/">
+                            <button class="border_2">
+                                <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                                </svg>
+                                <h5 class="home">Home</h5>
+                            </button>
+                        </a>
+                    </li> 
+                    <br>
+                    <li style="color: rgb(241, 240, 240);">
+                        <a class="side_name" href="/community/">
+                            <button class="border_2">
+                                <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                                    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                    <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                                    <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                                </svg>
+                                <h5 class="home">community</h5>
+                            </button>
+                        </a>
+                    </li>
+                    <br>
+                    <li style="color: rgb(241, 240, 240);">
+                        <a class="side_name" href='/class/create.html/'>
+                            <button class="border_2">
+                                <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-window-plus" viewBox="0 0 16 16">
+                                    <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1ZM4 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+                                    <path d="M0 4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v4a.5.5 0 0 1-1 0V7H1v5a1 1 0 0 0 1 1h5.5a.5.5 0 0 1 0 1H2a2 2 0 0 1-2-2V4Zm1 2h13V4a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2Z"/>
+                                    <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5Z"/>
+                                </svg>
+                                <h5 class="home">CreateClass</h5>
+                            </button>
+                        </a>
+                    </li>
+                    <br>
+                    <li>
+                        <div style=" margin-top: -25px;">
+                            <div class="main_information"><b><h4>Class名</h4></b></div>
+                            <div class="class_name">
+                                <h3>{{community.name}}</h3>
+                                <hr class="hr_style2">
+                            </div>
+                        </div>
+                    </li>
+                    <br>
+                    <br>
+                    <li>
+                        <div class="asjn" style=" margin-top: -50px;">
+                            <div class="main_information"><b><h4>Class管理者</h4><b></div>
+                            <div class="manager_name">
+                                <h3><a href="/class/manager/id={{community.id}}/">{{community.manager_name}}</a></h3>
+                                <hr class="hr_style">
+                            </div>
+                        </div>
+                    </li>
+                    <br>
+                    <div>
+                        <div  class="container py-5">
+                            <div id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+                                <div id="modal-overlay">
+                                    <div id="modal-content" role="document">
+                                        <center>
+                                            <div  class="post_form">
+                                                <div class="modal-header">
+                                                    <h1><center>Comment作成</center></h1>
+                                                    {% comment %} <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>{% endcomment %}
+                                                    <span class="modalClose" aria-hidden="true">&times;</span>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <div>
+                                                        <form   class="forms" enctype="multipart/form-data" method="post">
+                                                            {% csrf_token %}
+                                                            {{form | crispy}}
+                                                            <div style="text-align: center; font-size: 17.5;">
+                                                                <button class="btn btn-primary" type="submit">create</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </center>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <li>
-                {% for group in groups %}
-                <div class="aOFIVwBJ7hurQFVS2Xyv7bp9hHVcyESdOem3HwKYcdxzWaabvCd6kjXAJMRmNrg4"><a href="/class/manager/id={{ group.id }}/">{{group.name}}</a></div>
-                {% endfor %}
-            </li>
+                    <li>
+                        {% for group in groups %}
+                        <div class="aOFIVwBJ7hurQFVS2Xyv7bp9hHVcyESdOem3HwKYcdxzWaabvCd6kjXAJMRmNrg4"><a href="/class/manager/id={{ group.id }}/">{{group.name}}</a></div>
+                        {% endfor %}
+                    </li>
+                </li>
+            </ul>
         </aside>
         <div class="tab-panel">
             <div class="panel-group">
@@ -655,8 +751,16 @@ div.sticky.community_name{
                             <div class="bord_main">
                                 <div class="title_bord">
                                     <span class="community_name">
-                                        <b>{{community.class_name}}</b>
+                                        <b>{{community.name}}</b>
                                     </span>
+                                    <div id="follow_button" class="follow" onclick="f()">+ Offer</div>
+                                    <small>
+                                        <div class="class_info">
+                                            <b>
+                                                <div>{{community.explain | linebreaks}}</div>
+                                            </b>
+                                        </div>
+                                    </small>
                                 </div>
                                 <hr class="hr_class_name">
                                 <ul class="tab2-group">
@@ -677,7 +781,7 @@ div.sticky.community_name{
                                         {% comment %} <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
                                             <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
                                         </svg> {% endcomment %}
-                                        <i>OfficalData</i>
+                                        <i>PastPosts</i>
                                     </li>
                                     <li class="tab2 tab2-D">
                                         {% comment %} <svg style=" margin-left: 0px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
@@ -703,7 +807,7 @@ div.sticky.community_name{
                                                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                                     </svg>
                                                 </span>
-                                                <input id="modalOpen" type="text" class="post_input"  placeholder="What's going on ?"/></a>
+                                                <a href="/community/comment_create/"><input id="modalOpen" type="text" class="post_input"  placeholder="What's going on ?"/></a>
                                             </div>
                                             <hr>
                                             <span>
@@ -726,23 +830,14 @@ div.sticky.community_name{
                                                 <ul>
                                                     <div>
                                                     {%for comment in community.comments.all %}
-                                                        {% if comment.image %}
                                                         <br>
                                                         <div class="comment_bord">
-                                                            <span class="commet_post">
-                                                                <div class="commenter_name"><a href="">{{comment.user|linebreaks}}</a></div>
-                                                                <div class="comment">{{comment.text|linebreaks}}</div>
-                                                                <div class="image">
-                                                                    <img src="./media/image/{{comment.image.id}}/" alt="">
-                                                                </div>
-                                                            </span>
-                                                        </div>
-                                                        {% else %} 
-                                                        <div class="copmment_bord">
-                                                            <div class="comment_commenter_name">{{comment.name | linebreaks}}</div>
+                                                            <img class="image_bord" src="/media/{{comment.backimage.id}}" alt="">
+                                                            <div class="comment_commenter_name"><a href="/profile.html/">{{comment.name | linebreaks}}</a></div>
+                                                            <div class="comment_time"><small>[{{ comment.created_at}}]</small></div>
+                                                            <br>
                                                             <div class="comment">{{comment.text | linebreaks}}</div>
                                                         </div>
-                                                        {% endif %}
                                                         {%empty%}
                                                         <div class="if_bord"><h2><b>I'm Sorry Not Comments</b></h2></div>
                                                     {% endfor %}
@@ -750,7 +845,7 @@ div.sticky.community_name{
                                                 </ul>
                                             </span>
                                         </div>
-                                        <nav class="class_information">
+                                        {% comment %} <nav class="class_information">
                                             <div><h4><b>classの基本情報</b></h4></div>
                                             <ul>
                                                 <li>
@@ -771,7 +866,7 @@ div.sticky.community_name{
                                                     </div>
                                                 </li>
                                             </ul>
-                                        </nav>
+                                        </nav> {% endcomment %}
                                     </div>
                                 </div>
                                 <div class="panel2 tab2-B">
@@ -780,12 +875,38 @@ div.sticky.community_name{
                                     </div>
                                 </div>
                                 <div class="panel2 tab2-C">
-                                    <div class="post_talk_bord">
-                                        <h1>Post_room</h1>
+                                    {% comment %} PatsPostsは過去の投稿履歴一覧 {% endcomment %}
+                                    <br>
+                                    <div>
+                                    {%for commented in community.comments.all %}
+                                        {% if commented.image %}
+                                        <br>
+                                        <div class="comment_bord">
+                                            <span class="commet_post">
+                                                <div class="commenter_name"><a href="">{{commented.user|linebreaks}}</a></div>
+                                                <div class="comment">{{commented.text|linebreaks}}</div>
+                                                <div>
+                                                    <img class="image" src="./media/image/{{comment.image.id}}/" alt="">
+                                                </div>
+                                            </span>
+                                            <hr>
+                                        </div>
+                                        {% else %} 
+                                        <div class="copmment_bord">
+                                            <div class="comment_commenter_name">
+                                                {{commented.user | linebreaks}}
+                                                <small>:a createed date: {{ comment.created_at }}</small>
+                                            </div>
+                                            <div class="comment">{{commented.text | linebreaks}}</div>
+                                        </div>
+                                        {% endif %}
+                                        {%empty%}
+                                        <div class="if_bord"><h2><b>I'm Sorry Not Comments</b></h2></div>
+                                    {% endfor %}
                                     </div>
                                 </div>
                                 <div class="panel2 tab2-D">
-                                    <div class="post_talk_bord">
+                                    <div>
                                         <div>
                                             <form method="POST">
                                                 {% csrf_token %}
@@ -869,6 +990,9 @@ div.sticky.community_name{
                 </div>
             </div>
         </div>
+        <aside class="leftside_bord">
+            <nav></nav>
+        </aside>
     </div>
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function(){
@@ -919,7 +1043,7 @@ div.sticky.community_name{
         const modalContent = document.getElementById("modal-content")
         buttonOpen.addEventListener("click", () => {
 
-            fetch('comment_post.html')
+            fetch("/community/comment_create/")
             .then(response => response.text())
             .then(data => {
               modalContent.innerHTML = data;
@@ -936,7 +1060,6 @@ div.sticky.community_name{
             }
         });
         const bordmain = document.querySelector(".bord_main");
-        const community_name = document.querySelector(".community_name")
         const tab2group = document.querySelector(".tab2-group");
         const classinformation = document.querySelector(".class_information")
         //bord_mainクラスのものがtab2-groupクラスの位置に来たら固定する。
@@ -948,7 +1071,7 @@ div.sticky.community_name{
             }
         });
         window.addEventListener("scroll" , () =>{
-            if(window.pageYOffset >= tab2group.offsetTop){
+            if(window.pageYOffset >= bordmain.offsetTop){
                 classinformation.classList.add("sticky");
             }else{
                 classinformation.classList.remove("sticky");
@@ -956,3 +1079,4 @@ div.sticky.community_name{
         });
     </script>
 </body>
+

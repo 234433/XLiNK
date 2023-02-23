@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-
+from django.urls import reverse
+from django.template.defaultfilters import slugify # new
 class Connection(models.Model):
    user = models.OneToOneField(User, on_delete=models.CASCADE)
    following = models.ManyToManyField(User, related_name='following', blank=True)
@@ -58,21 +59,26 @@ class Group(models.Model):
     # }
     # manager_name = models.ForeignKey(Account, null=True,blank=True ,on_delete=models.CASCADE )
     manager_name = models.CharField(max_length=25,blank=True, null=True, verbose_name="管理者名")
-    class_name = models.CharField(max_length=23, blank=True, null=True, verbose_name="Class名")
+    name = models.CharField(max_length=23, blank=True, null=True, verbose_name="Class名")
     # genre = models.CharField(max_length=9, choices=GENRE)
     category = models.ForeignKey(Category, verbose_name="ジャンル", on_delete=models.PROTECT)
     backimage = models.ImageField(upload_to='media/', verbose_name="BackImage")
     explain = models.TextField(max_length=180,blank=True, verbose_name="explain")
     def __str__(self):
-        return str(self.class_name)
+        return str(self.name)
     class Meta:
         verbose_name_plural = 'ClassName'
 class Comment(models.Model):
-    Destination = models.ForeignKey(Group,related_name="comments",verbose_name="投稿先" ,null=True,blank=True ,on_delete=models.CASCADE)
-    user = models.CharField(max_length=25,blank=True, null=True, verbose_name="ユーザー名")
+    Destination = models.ForeignKey(Group,related_name="comments",verbose_name="投稿先" ,null=True,on_delete=models.CASCADE)
+    name = models.ForeignKey(Account,max_length=25,on_delete=models.CASCADE,verbose_name="ユーザー名", null=True)
+    # name = models.CharField(max_length=25,verbose_name="ユーザー名", null=True)
     text = models.TextField(max_length=180, blank=True, verbose_name="コメント")
-    image = models.ImageField(upload_to='image/', verbose_name="写真")
+    created_at = models.DateField(null=True ,auto_now_add=True, blank=True, verbose_name='作成日')
+    # image = models.ImageField(upload_to='image/', verbose_name="写真")
     def __str__(self):
-        return str(self.user)
+        return str(self.Destination)
+    def get_absolute_url(self):
+        return reverse("community", kwargs={"name": self.Destination})
+    
     class Meta:
         verbose_name_plural = 'Comments'

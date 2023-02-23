@@ -50,8 +50,8 @@ class ClassCreateForm(forms.ModelForm):
 			'manager_name' : forms.TextInput(
 				attrs={'placeholder': 'あなたのユーザー名'}
 			),
-			'class_name' : forms.TextInput(
-				attrs={'placeholder': 'クラス名'}
+			'name' : forms.TextInput(
+				attrs={'placeholder': 'クラス名(dotto is not )'}
 			),
 			'explain': forms.Textarea(
 				attrs={'placeholder': 'クラスの基本的な説明'}
@@ -63,21 +63,37 @@ class ClassCreateForm(forms.ModelForm):
 		if commit:
 			user.save()
 		return user
+# class CommentForm(forms.ModelForm):
+# 	class Meta:
+# 		model = Comment
+# 		fields = "__all__"
+# 		widgets = {
+# 			'text':forms.Textarea(
+# 				attrs={'placeholder': "what's goning on ?"},				
+# 			),
+# 		}
+# 	def save(self,commit=True):
+# 		user = super(CommentForm, self).save(commit=True)
+# 		user.manager_name = self.cleaned_data['name']
+# 		if commit:
+# 			user.save()
+# 		return user
 class CommentForm(forms.ModelForm):
+	
 	class Meta:
 		model = Comment
 		fields = "__all__"
 		widgets = {
-			'text':forms.Textarea(
-				attrs={'placeholder': "what's goning on ?"},				
+			'Destination': forms.BaseFormSet(
+			
 			),
-			'user': forms.TextInput(
-			attrs={'placeholder': "your user name"}
-			)
+			'text': forms.Textarea(
+				attrs={'placeholder': "What's goning on?"}
+			),
 		}
 	def save(self,commit=True):
 		user = super(CommentForm, self).save(commit=True)
-		user.text= self.cleaned_data['user']
+		user.name = self.cleaned_data['name']
 		if commit:
 			user.save()
 		return user

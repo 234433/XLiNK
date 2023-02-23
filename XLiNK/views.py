@@ -17,7 +17,7 @@ from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 from django.db.models import Q
-
+from django.urls import reverse
 @csrf_exempt
 def create_request(request):
 	if request.method == "POST":
@@ -71,16 +71,15 @@ def index(request):
     return HttpResponse(template.render(context, request))
 @csrf_exempt
 def accounts(request):
-	accounts = Group.objects.order_by('-class_name')[:100000]
-
+	accounts = Group.objects.order_by('-name')[:100000]
 	template=loader.get_template('home.html')
 	context={
 		'csrf_token': '',
 		'accounts': accounts,
 	}
 	return HttpResponse(template.render(context, request))
-def account(request,pk):
-	account= Group.objects.get(pk=pk)
+def account(request, name):
+	account= Group.objects.get(account=name)
 	template = loader.get_template('class.html')
 	context={
 		'account': account,
@@ -118,26 +117,19 @@ def manager(request, pk):
 	}
 	return HttpResponse(template.render(context, request))
 
-def community(request):
-	communitys = Group.objects.order_by('-class_name')[:10]
+def communitys(request):
+	communitys = Group.objects.order_by('-name')[:10]
 	template = loader.get_template('community.html')
 	context = {
 		'communitys':communitys,
 	}
 	return HttpResponse(template.render(context, request))
-class CommentView(generic.CreateView):
-	form_class = CommentForm
-	template_name = 'comment_post.html'
-	success_url = '/community/{{community.id}}/'
-post = CommentView.as_view()
-# def posts(request):
-# 	posts = Group.objects.order_by("-class-name")[:100]
 
-def communities(request, pk):
-	community = Group.objects.get(pk=pk)
+def community(request, name):
+	name = Group.objects.get(name=name)
 	template  = loader.get_template('class.html')
 	context = {
-		'community': community,
+		'community': name,
 	}
 	return HttpResponse(template.render(context, request))
 def class_request(request):
@@ -200,21 +192,9 @@ def posts_by_category(request, name):
 	category = Category.objects.get(name=name)
 	accouunts = Group.objects.filter(category=category)
 	return render(request, 'home.html', {'category': category, 'accounts':accouunts})
-# def post_comments(request):
-# 	model = Comment
-# 	if request.POST:
-# def post_comment(request):
-#     if request.method == 'POST':
-#         form = CommentForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('/community/id={{community.id}}/')
-#     else:
-#         form = CommentForm()
-#     return render(request, 'comment_post.html', {'form': form})
 def comments(request):
     template = loader.get_template('class.html')
-    comments = Comment.objects.order_by('-created_at')[:10000]
+    comments = Comment.objects.order_by('created_at')[:10000]
     context = {
         'comments': comments
     }
@@ -226,3 +206,23 @@ def comment(request,pk):
         'comment': comment
     }
     return HttpResponse(template.rebder(context, request))
+def commenteds(request):
+    template = loader.get_template('class.html')
+    comments = Comment.objects.order_by('-created_at')[:10000]
+    context = {
+        'comments': comments
+    }
+    return HttpResponse(template.render(context, request))
+def commented(request,pk):
+    template = loader.get_template('class.html')
+    comment = Comment.objects.get(pk=pk)
+    context = {
+        'comment': comment
+    }
+    return HttpResponse(template.rebder(context, request))
+
+class CommentCreateView(generic.CreateView):
+	template_name = "comment_form.html"
+	model = Comment
+	form_class = CommentForm
+commentcreate = CommentCreateView.as_view()

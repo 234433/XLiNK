@@ -608,7 +608,7 @@
             </li>
             <br>
             <li style="color: rgb(241, 240, 240);">
-                <a class="side_name" href='class/create.html/'>
+                <a class="side_name" href='/class/create.html/'>
                     <button class="border_2">
                         <svg style="position: relative; margin-left: -180px; margin-top: 7px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-window-plus" viewBox="0 0 16 16">
                             <path d="M2.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1ZM4 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
@@ -638,7 +638,7 @@
             <br>
             <div  style="top: 150px;margin-left: -250px;">
                 <div class="class_bord">
-                    <div><img class="image_bord" src="/media/{{account.backimage}}" alt=""><a href="/community/id={{account.id}}/">{{ community.backimage.id | linebreaks }}</a></div>
+                    <div><img class="image_bord" src="/media/{{account.backimage}}" alt=""><a href="/community/id={{account.class_name}}/">{{ community.backimage.id | linebreaks }}</a></div>
                     <div class="class_names">
                         <b><a href="/community/id={{community.id}}/">{{community.class_name}}</a></b>
                         <small>:[{{community.genre}}クラス]</small>
@@ -684,13 +684,12 @@
                         <br>
                         <div class="class_bord">
                             <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
-                                <a href="/community/id={{account.id}}/">
+                                <a href="/community/{{account.name}}/">
                                     <div>
-                                        <img class="image_bord" src="/media/{{account.backimage}}" alt="">
-                                        <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                        <a href="/community/{{account.name}}/"><img class="image_bord" src="/media/{{account.backimage}}" alt="">{{ account.backimage.id | linebreaks }}</a>
                                     </div>
                                     <div class="class_names">
-                                        <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                        <b><a href="/community/{{account.name}}/">{{account.name}}</a></b>
                                         <small><u>:[{{account.category}}クラス]</u></small>
                                     </div>
                                     <div class="class_explain">
@@ -704,13 +703,13 @@
                             <br>
                             <div class="class_bord">
                                 <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
-                                    <a href="/community/id={{account.id}}/">
+                                    <a href="/community/{{account.name}}/">
                                         <div>
                                             <img class="image_bord" src="/media/{{account.backimage}}" alt="">
-                                            <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                            <a href="/community/id={{account.name}}/">{{ account.backimage.id | linebreaks }}</a>
                                         </div>
                                         <div class="class_names">
-                                            <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                            <b><a href="/community/{{account.name}}/">{{account.name}}</a></b>
                                             <small><u>:[{{account.category}}クラス]</u></small>
                                         </div>
                                         <div class="class_explain">
@@ -727,13 +726,13 @@
                                 
                                 {{category.name}}
                                 <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
-                                    <a href="/community/id={{account.id}}/">
+                                    <a href="/community/id={{account.class_name}}/">
                                         <div>
                                             <img class="image_bord" src="/media/{{account.backimage}}" alt="">
-                                            <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                            <a href="/community/{{account.name}}/">{{ account.backimage.id | linebreaks }}</a>
                                         </div>
                                         <div class="class_names">
-                                            <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                            <b><a href="/community/{{account.class_name}}/">{{account.class_name}}</a></b>
                                             <small><u>:[{{account.category}}クラス]</u></small>
                                         </div>
                                         <div class="class_explain">
@@ -749,13 +748,13 @@
                             <div class="class_bord">
                                 {{category.name}}
                                 <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
-                                    <a href="/community/id={{account.id}}/">
+                                    <a href="/community/id={{account.class_name}}/">
                                         <div>
                                             <img class="image_bord" src="/media/{{account.backimage}}" alt="">
-                                            <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                            <a href="/community/id={{account.class_name}}/">{{ account.backimage.id | linebreaks }}</a>
                                         </div>
                                         <div class="class_names">
-                                            <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                            <b><a href="/community/{{account.class_name}}/">{{account.class_name}}</a></b>
                                             <small><u>:[{{account.category}}クラス]</u></small>
                                         </div>
                                         <div class="class_explain">
@@ -771,13 +770,13 @@
                             <div class="class_bord">
                                 {{category.name}}
                                 <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
-                                    <a href="/community/id={{account.id}}/">
+                                    <a href="/community/id={{account.class_name}}/">
                                         <div>
                                             <img class="image_bord" src="/media/{{account.backimage}}" alt="">
-                                            <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                            <a href="/community/id={{account.class_name}}/">{{ account.backimage.id | linebreaks }}</a>
                                         </div>
                                         <div class="class_names">
-                                            <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                            <b><a href="/community/id={{account.class_name}}/">{{account.class_name}}</a></b>
                                             <small><u>:[{{account.category}}クラス]</u></small>
                                         </div>
                                         <div class="class_explain">
@@ -792,13 +791,13 @@
                             <div class="class_bord">
                                 {{category.name}}
                                 <span style="  top:-3px;box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);">
-                                    <a href="/community/id={{account.id}}/">
+                                    <a href="/community/id={{account.class_name}}/">
                                         <div>
                                             <img class="image_bord" src="/media/{{account.backimage}}" alt="">
-                                            <a href="/community/id={{account.id}}/">{{ account.backimage.id | linebreaks }}</a>
+                                            <a href="/community/id={{account.class_name}}/">{{ account.backimage.id | linebreaks }}</a>
                                         </div>
                                         <div class="class_names">
-                                            <b><a href="/community/id={{account.id}}/">{{account.class_name}}</a></b>
+                                            <b><a href="/community/id={{account.class_name}}/">{{account.class_name}}</a></b>
                                             <small><u>:[{{account.category}}クラス]</u></small>
                                         </div>
                                         <div class="class_explain">
