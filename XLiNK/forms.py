@@ -6,7 +6,6 @@ from .models import Account, Group, Comment
 from django.utils import timezone
 
 
-# Create your forms here.
 
 class RegisterForm(UserCreationForm):
 	email = forms.EmailField(required=True)
@@ -79,21 +78,24 @@ class ClassCreateForm(forms.ModelForm):
 # 			user.save()
 # 		return user
 class CommentForm(forms.ModelForm):
-	
 	class Meta:
 		model = Comment
-		fields = "__all__"
+		exclude = ["user", "destination"]
 		widgets = {
-			'Destination': forms.BaseFormSet(
-			
-			),
-			'text': forms.Textarea(
-				attrs={'placeholder': "What's goning on?"}
-			),
-		}
-	def save(self,commit=True):
-		user = super(CommentForm, self).save(commit=True)
-		user.name = self.cleaned_data['name']
-		if commit:
-			user.save()
-		return user
+ 			'text':forms.Textarea(
+ 				attrs={'placeholder': "what's goning on ?"},				
+ 			),
+ 		}
+		def __init__(self, user=None,destination=None, *args, **kwargs):
+					self.user = user
+					self.destination = destination
+					super().__init__(*args, **kwargs)
+		def save(self, commit=True):
+			nippo_obj = super().save(commit=False)
+			if self.user and self.destination:
+				nippo_obj.user = self.user
+				nippo_obj.destination = self.destination
+				if commit:
+					nippo_obj.save()
+				return nippo_obj
+	

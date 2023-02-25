@@ -7,7 +7,7 @@ urlpatterns = [
     path('index/login/', views.login_request, name="login"),
     path('index/create/', views.createaccount, name="create"),
     path('community/', views.communitys, name="communitys"),
-    path('community/comment_create/',  views.commentcreate, name="commentcreate"),
+    path('community/<slug:name>/comment_post/',  views.commentcreate, name="commentcreate"),
     path('', views.accounts, name="accounts"),
     path('class/create.html/', views.classcreate, name='class' ),
     path('profile.html/id=<int:pk>/', views.home, name="home"),

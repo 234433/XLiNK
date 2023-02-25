@@ -18,6 +18,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 from django.db.models import Q
 from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 @csrf_exempt
 def create_request(request):
 	if request.method == "POST":
@@ -223,6 +224,30 @@ def commented(request,pk):
 
 class CommentCreateView(generic.CreateView):
 	template_name = "comment_form.html"
-	model = Comment
 	form_class = CommentForm
+	success_url = reverse_lazy("community")
+	def get_form_kwargs(self):
+		kwgs = super().get_form_kwargs()
+		kwgs["user"] = self.request.user
+		return kwgs
 commentcreate = CommentCreateView.as_view()
+# def commentcreate(request):
+# 	initial_dict = {
+#         'Destination': Group.name,
+#         'names': Account.name,
+#     }
+# 	form = ClassCreateForm(request.POST or None, initial=initial_dict)
+# 	return render (request=request, template_name="comment_form.html", context={"comment_form":form})
+# def nippoUpdateFormView(request, pk):
+#     template_name = "class.html"
+#     obj = Group.objects.get(pk=pk),
+#     initial_values = {"Destination": obj.name, "names":obj.name}
+#     form = NippoFormClass(request.POST or initial_values)
+#     ctx = {"form": form}
+#     if form.is_valid():
+#         name = form.cleaned_data["title"]
+#         content = form.cleaned_data["content"]
+#         obj.title = title
+#         obj.content = content
+#         obj.save()
+#     return render(request, template_name, ctx)
