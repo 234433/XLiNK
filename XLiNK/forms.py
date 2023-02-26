@@ -56,7 +56,10 @@ class ClassCreateForm(forms.ModelForm):
 		exclude=['manager_name']
 		widgets = {
 			'name' : forms.TextInput(
-				attrs={'placeholder': 'クラス名(dotto is not )'}
+				attrs={
+			'placeholder': 'クラス名(dotto is not )',
+			'min-length': 8,
+			}
 			),
 			'explain': forms.Textarea(
 				attrs={'placeholder': 'クラスの基本的な説明'}
@@ -101,7 +104,7 @@ class CommentForm(forms.ModelForm):
  			'text':forms.Textarea(
  				attrs={
 			'placeholder': "what's goning on ?",
-			'rows':4, 'cols':15,
+			'rows':15, 'cols':25,
 			},				
  			),
  		}

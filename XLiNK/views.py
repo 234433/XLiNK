@@ -233,11 +233,9 @@ class CommentFromView(generic.CreateView):
 	template_name = "comment_form.html"
 	form_class = CommentForm
 	success_url = reverse_lazy("community")
-	def get_form_kwargs(self,destination=None ,*args, **kwargs):
-		self.destination = destination
+	def get_form_kwargs(self,*args, **kwargs):
 		xlink_obj = super().get_form_kwargs(*args, **kwargs)
 		xlink_obj['user'] = self.request.user
-		xlink_obj['destination'] = self.destination
 		return xlink_obj
 # 	initial_dict = {
 #         'Destination': Group.name,

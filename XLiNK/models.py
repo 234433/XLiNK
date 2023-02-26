@@ -71,7 +71,7 @@ class Group(models.Model):
 class Comment(models.Model):
     destination = models.ForeignKey(Group,related_name="comments",null=True,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
-    text = models.TextField(max_length=180, blank=True, verbose_name="コメント")
+    text = models.TextField(max_length=180, blank=True, verbose_name='comment')
     created_at = models.DateField(null=True ,auto_now_add=True, blank=True, verbose_name='作成日')
     # image = models.ImageField(upload_to='image/', verbose_name="写真")
     # destination = models.CharField(max_length=75, blank=True, null=True,verbose_name="Class名")

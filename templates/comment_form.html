@@ -56,8 +56,16 @@ to {
     color: black;
 }
 .post_form{
-    width: 450px;
-    height: 700px;
+    width: 425px;
+    height: 550px;
+}
+.user_name{
+    font-size: 30px;
+    margin-left: -250px;
+    
+}
+.forms{
+    margin-top: -30px;
 }
     </style>
 </head>
@@ -70,10 +78,12 @@ to {
               </div>
               <div class="modal-body">
                 <div>
+                    <div class="user_name">{{user}}</div>
                     <form   class="forms" enctype="multipart/form-data" method="post">
+                        {% comment %} <div><img src="/media/{{}}/" /></div> {% endcomment %}
                         {% csrf_token %}
                         {{form | crispy}}
-                        <div style="text-align: center; font-size: 17.5;">
+                        <div style="margin-top: 0px; text-align: center; font-size: 17.5;">
                             <button class="btn btn-primary" type="submit">create</button>
                         </div>
                     </form>
