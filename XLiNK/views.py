@@ -19,6 +19,7 @@ from django.views.generic import ListView
 from django.db.models import Q
 from django.urls import reverse
 from django.urls import reverse, reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 @csrf_exempt
 def create_request(request):
 	if request.method == "POST":
@@ -148,13 +149,19 @@ def class_request(request):
 class CreateAccountView(generic.CreateView):
 	form_class=AccountForm
 	template_name = "account.html"
-	success_url="/index/login/"
-createaccount = CreateAccountView.as_view()
+	success_url = reverse_lazy("accounts")
+	def get_form_kwargs(self,*args, **kwargs):
+		xlink_obj = super().get_form_kwargs(*args, **kwargs)
+		xlink_obj['name'] = self.request.user
+		return xlink_obj
 class CreateClassView(generic.CreateView):
 	form_class = ClassCreateForm
 	template_name="create.html"
-	success_url = '/'
-classcreate= CreateClassView.as_view()
+	success_url = reverse_lazy("accounts")
+	def get_form_kwargs(self,*args, **kwargs):
+		xlink_obj = super().get_form_kwargs(*args, **kwargs)
+		xlink_obj['manager_name'] = self.request.user
+		return xlink_obj
 
 def groups(request):
 	groups = Group.objects.order_by("_manager_name")[:1000]
@@ -222,16 +229,16 @@ def commented(request,pk):
     }
     return HttpResponse(template.rebder(context, request))
 
-class CommentCreateView(generic.CreateView):
+class CommentFromView(generic.CreateView):
 	template_name = "comment_form.html"
 	form_class = CommentForm
 	success_url = reverse_lazy("community")
-	def get_form_kwargs(self):
-		kwgs = super().get_form_kwargs()
-		kwgs["user"] = self.request.user
-		return kwgs
-commentcreate = CommentCreateView.as_view()
-# def commentcreate(request):
+	def get_form_kwargs(self,destination=None ,*args, **kwargs):
+		self.destination = destination
+		xlink_obj = super().get_form_kwargs(*args, **kwargs)
+		xlink_obj['user'] = self.request.user
+		xlink_obj['destination'] = self.destination
+		return xlink_obj
 # 	initial_dict = {
 #         'Destination': Group.name,
 #         'names': Account.name,

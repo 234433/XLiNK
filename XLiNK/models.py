@@ -58,7 +58,7 @@ class Group(models.Model):
     #     ('TalkClass', 'TalkClass'),
     # }
     # manager_name = models.ForeignKey(Account, null=True,blank=True ,on_delete=models.CASCADE )
-    manager_name = models.CharField(max_length=25,blank=True, null=True, verbose_name="管理者名")
+    manager_name = models.ForeignKey(User,blank=True, null=True,on_delete=models.PROTECT ,verbose_name="管理者名")
     name = models.CharField(max_length=23, blank=True, null=True, verbose_name="Class名")
     # genre = models.CharField(max_length=9, choices=GENRE)
     category = models.ForeignKey(Category, verbose_name="ジャンル", on_delete=models.PROTECT)
@@ -78,7 +78,7 @@ class Comment(models.Model):
     # user = models.CharField(max_length=75, blank=True, null = True, verbose_name="ユーザー名")
     # name = models.CharField(max_length=25,verbose_name="ユーザー名", null=True)
     def __str__(self):
-        return str(self.destination)
+        return str(self.user)
     def get_absolute_url(self):
         return reverse("community", kwargs={"destination": self.destination})
     
