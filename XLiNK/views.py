@@ -122,7 +122,7 @@ def communitys(request):
 
 def community(request, name):
 	current_user = request.GET.get('user')
-	logged_in_user = request.user
+	logged_in_user = request.user.username
 	name = Group.objects.get(name=name)
 	template  = loader.get_template('class.html')
 	context = {
@@ -137,7 +137,7 @@ def follow_count(request):
 		user = request.POST['user']
 		follower = request.POST['follower']
 		if value == 'follow':
-			followers_cnt = FollowersCount.objects.create(follower=follower, user=user)
+			followers_cnt = FollowersCount.objects.create(user=user, follower=follower)
 			followers_cnt.save()
 	
 def class_request(request):

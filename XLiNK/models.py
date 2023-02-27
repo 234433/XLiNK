@@ -80,8 +80,8 @@ class Comment(models.Model):
     class Meta:
         verbose_name_plural = 'Comments'
 class FollowersCount(models.Model):
+    user = models.CharField(max_length=10000)
     follower= models.CharField(max_length=10000)
     # このfollowerは現在ログインしている方
-    user = models.CharField(max_length=10000)
     def __str__(self):
-        return str(self.user)
+        return self.user
