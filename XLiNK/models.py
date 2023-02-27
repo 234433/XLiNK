@@ -79,13 +79,9 @@ class Comment(models.Model):
     
     class Meta:
         verbose_name_plural = 'Comments'
-class Follow(models.Model):
-    follower = models.ForeignKey(User, related_name='following_set', on_delete=models.CASCADE)
-    followed = models.ForeignKey(Group, related_name='follower_set', on_delete=models.CASCADE)
-    date_created = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = ('follower', 'followed')
-
+class FollowersCount(models.Model):
+    follower= models.CharField(max_length=10000)
+    # このfollowerは現在ログインしている方
+    user = models.CharField(max_length=10000)
     def __str__(self):
-        return f'{self.follower} follows {self.followed}'
+        return str(self.user)

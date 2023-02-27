@@ -122,23 +122,5 @@ class CommentForm(forms.ModelForm):
 			if commit:
 				xlink_obj.save()
 		return xlink_obj
-from .models import Follow
 
-class FollowForm(forms.ModelForm):
-    followed_user = forms.ModelChoiceField(queryset=User.objects.all(), widget=forms.HiddenInput())
-    
-    class Meta:
-        model = Follow
-        fields = ['followed_user']
 
-    def __init__(self, *args, **kwargs):
-        self.follower = kwargs.pop('follower', None)
-        super(FollowForm, self).__init__(*args, **kwargs)
-
-    def save(self, commit=True):
-        instance = super(FollowForm, self).save(commit=False)
-        instance.follower = self.follower
-        if commit:
-            instance.save()
-            self.save_m2m()
-        return instance

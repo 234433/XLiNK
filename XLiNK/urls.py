@@ -13,8 +13,8 @@ urlpatterns = [
     path('class/create.html/', views.CreateClassView.as_view(), name='class' ),
     path('profile.html/id=<int:pk>/', views.home, name="home"),
     path('community/<str:name>/', views.community, name="community"),
+    path('follow_count', views.follow_count, name="follow_count"),
     path('class/manager/<slug:name>/', views.group, name="group"),
     path('', views.IndexView.as_view(), name="accounts"),
     path('class/<slug:name>/', views.posts_by_category, name="class"),
-    path('follow/', views.follow, name='follow'),
 ]

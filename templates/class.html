@@ -753,10 +753,12 @@ font-size: 15px;
                                     <span class="community_name">
                                         <b>{{community.name}}</b>
                                     </span>
-                                    <form id="follow_button" class="follow" action="/follow/" method="post">
+                                    <form id="follow_button" class="follow" action="/follow_count" method="post">
                                         {% csrf_token %}
-                                        <input type="hidden" name="followed_user" value="{{ user.id }}">
-                                        <button type="submit">+Follow{{user.username}}</button>
+                                        <input type="hidden" name="user" value="{{urrent_user}}"readonly/>
+                                        <input type="hidden" name="follower" value="{{user.username}}" readonly/>
+                                        <input type="hidden" name="value" value="follow" readonly/>
+                                        <button type="submit">+Follow<div style="display:none;">{{user.username}}</div></button>
                                       </form>
                                     <small>
                                         <div class="class_info">

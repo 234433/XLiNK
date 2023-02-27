@@ -9,7 +9,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm #add this
 from django.contrib.auth.models import User
 from django.utils import timezone
-from .models import Account, User, Group, Comment, Category
+from .models import Account, User, Group, Comment, Category, FollowersCount
 from django.views import generic
 from django.shortcuts import get_object_or_404
 from django.contrib import auth
@@ -22,41 +22,10 @@ from django.urls import reverse, reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import FollowForm
-from .models import Follow
-from django.http.response import JsonResponse
-@login_required
-def follow(request):
-    if request.method == 'POST':
-        form = FollowForm(request.POST)
-        if form.is_valid():
-            followed_user = form.cleaned_data['followed_user']
-            follow = Follow.objects.create(follower=request.user, followed_user=followed_user)
-            follow.save()
-            messages.success(request, f"You are now following {followed_user.username}.")
-    return redirect('community')
 
-@login_required
-def unfollow(request, followed_user_id):
-    if request.method == 'POST':
-        follow = Follow.objects.filter(follower=request.user, followed_user_id=followed_user_id).first()
-        if follow:
-            follow.delete()
-            messages.success(request, f"You have unfollowed {followed_user_id.username}.")
-    return redirect('community')
-@csrf_exempt
-def create_request(request):
-	if request.method == "POST":
-		form = AccountForm(request.POST)
-		if form.is_valid():
-			users = form.save()
-			if users:
-				login(request, users)
-				messages.success(request, "Create account successful." )
-				return redirect("/index/login/")
-		messages.error(request, "Unsuccessful create account. Invalid information.")
-	form = AccountForm()
-	return render (request=request, template_name="account.html", context={"account_form":form})
+from django.http.response import JsonResponse
+
+
 @csrf_exempt
 def login_request(request):
 	if request.method == "POST":
@@ -152,12 +121,25 @@ def communitys(request):
 	return HttpResponse(template.render(context, request))
 
 def community(request, name):
+	current_user = request.GET.get('user')
+	logged_in_user = request.user
 	name = Group.objects.get(name=name)
 	template  = loader.get_template('class.html')
 	context = {
 		'community': name,
+		'current_user': current_user,
+		'logged_in_user': logged_in_user,
 	}
 	return HttpResponse(template.render(context, request))
+def follow_count(request):
+	if request.method == "POST":
+		value = request.POST["value"]
+		user = request.POST['user']
+		follower = request.POST['follower']
+		if value == 'follow':
+			followers_cnt = FollowersCount.objects.create(follower=follower, user=user)
+			followers_cnt.save()
+	
 def class_request(request):
 	if request.method == "POST":
 		form = ClassCreateForm(request.POST)

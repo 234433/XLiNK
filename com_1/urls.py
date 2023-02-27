@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.urls import path, include
+from XLiNK import views
 index_view = TemplateView.as_view(template_name="templates/home.html")
 from django.contrib.auth.decorators import login_required
 
