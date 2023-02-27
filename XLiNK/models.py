@@ -3,11 +3,6 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.urls import reverse
 from django.template.defaultfilters import slugify # new
-class Connection(models.Model):
-   user = models.OneToOneField(User, on_delete=models.CASCADE)
-   following = models.ManyToManyField(User, related_name='following', blank=True)
-   def __str__(self):
-       return self.user
 class Category(models.Model):
     name = models.CharField('k宛ごり', max_length=100)
 
@@ -84,3 +79,13 @@ class Comment(models.Model):
     
     class Meta:
         verbose_name_plural = 'Comments'
+class Follow(models.Model):
+    follower = models.ForeignKey(User, related_name='following_set', on_delete=models.CASCADE)
+    followed = models.ForeignKey(Group, related_name='follower_set', on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('follower', 'followed')
+
+    def __str__(self):
+        return f'{self.follower} follows {self.followed}'

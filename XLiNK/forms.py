@@ -102,21 +102,43 @@ class CommentForm(forms.ModelForm):
 		exclude = ["user", "destination"]
 		widgets = {
  			'text':forms.Textarea(
- 				attrs={
-			'placeholder': "what's goning on ?",
-			'rows':15, 'cols':25,
-			},				
+ 			attrs={'placeholder': "what's goning on ?",'rows':15, 'cols':25,},				
  			),
  		}
 	def __init__(self, user=None, destination=None, *args, **kwargs):
+		# for key, field in self.base_fields.items():
+		# 	if key != "destination":
+		# 		field.widget.attrs["class"] = "comment_field"
+		# 	else:
+		# 		field.widget.attrs["class"] = "comment_filed_not"
 		self.user = user
-		self.destination = destination
+		# self.destination = destination
 		super().__init__(*args, **kwargs)
+		# self.fields['destination'].queryset = Group.objects.all()
 	def save(self, commit=True):
 		xlink_obj = super().save(commit=False)
 		if self.user:
 			xlink_obj.user = self.user
-			xlink_obj.destination = self.destination
-			if commit==True:
+			if commit:
 				xlink_obj.save()
 		return xlink_obj
+from .models import Follow
+
+class FollowForm(forms.ModelForm):
+    followed_user = forms.ModelChoiceField(queryset=User.objects.all(), widget=forms.HiddenInput())
+    
+    class Meta:
+        model = Follow
+        fields = ['followed_user']
+
+    def __init__(self, *args, **kwargs):
+        self.follower = kwargs.pop('follower', None)
+        super(FollowForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        instance = super(FollowForm, self).save(commit=False)
+        instance.follower = self.follower
+        if commit:
+            instance.save()
+            self.save_m2m()
+        return instance

@@ -753,7 +753,11 @@ font-size: 15px;
                                     <span class="community_name">
                                         <b>{{community.name}}</b>
                                     </span>
-                                    <div id="follow_button" class="follow" onclick="f()">+ Offer</div>
+                                    <form id="follow_button" class="follow" action="/follow/" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="followed_user" value="{{ user.id }}">
+                                        <button type="submit">+Follow{{user.username}}</button>
+                                      </form>
                                     <small>
                                         <div class="class_info">
                                             <b>
@@ -1033,10 +1037,7 @@ font-size: 15px;
               document.getElementsByClassName('panel2')[index].classList.add('is-show2');
             };
           }, false);
-        function inputCheck(){
-            var inputValue = document.getElementById( "id_class_name" ).value;
-            document.getElementById( "check" ).innerHTML = ' ' + inputValue;
-        }
+
         const buttonOpen = document.getElementById("modalOpen");
         const modal = document.getElementById("modal");
         const buttonClose = document.getElementsByClassName("modalClose")[0];
@@ -1071,6 +1072,11 @@ font-size: 15px;
             }else{
                 classinformation.classList.remove("sticky");
             }
+        });
+        const button = document.getElementById("follow_button");
+        button.addEventListener("click", function() {
+            button.style.backgroundColor = "white";
+            button.style.Color = "rgb(78, 17, 247)";
         });
     </script>
 </body>

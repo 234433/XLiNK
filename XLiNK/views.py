@@ -20,6 +20,30 @@ from django.db.models import Q
 from django.urls import reverse
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .forms import FollowForm
+from .models import Follow
+from django.http.response import JsonResponse
+@login_required
+def follow(request):
+    if request.method == 'POST':
+        form = FollowForm(request.POST)
+        if form.is_valid():
+            followed_user = form.cleaned_data['followed_user']
+            follow = Follow.objects.create(follower=request.user, followed_user=followed_user)
+            follow.save()
+            messages.success(request, f"You are now following {followed_user.username}.")
+    return redirect('community')
+
+@login_required
+def unfollow(request, followed_user_id):
+    if request.method == 'POST':
+        follow = Follow.objects.filter(follower=request.user, followed_user_id=followed_user_id).first()
+        if follow:
+            follow.delete()
+            messages.success(request, f"You have unfollowed {followed_user_id.username}.")
+    return redirect('community')
 @csrf_exempt
 def create_request(request):
 	if request.method == "POST":
@@ -237,6 +261,7 @@ class CommentFromView(generic.CreateView):
 		xlink_obj = super().get_form_kwargs(*args, **kwargs)
 		xlink_obj['user'] = self.request.user
 		return xlink_obj
+form=CommentFromView.as_view()
 # 	initial_dict = {
 #         'Destination': Group.name,
 #         'names': Account.name,
@@ -256,3 +281,17 @@ class CommentFromView(generic.CreateView):
 #         obj.content = content
 #         obj.save()
 #     return render(request, template_name, ctx)
+# class FollowView(LoginRequiredMixin, generic.View):
+# 	model = Follow
+# 	def class_group(self, request):
+# 		class_id = request.POST.get('id')
+# 		class_name = Follow.objects.get(id=class_id)
+# 		follow = Follow(user=self.request.user, class_name=class_name)
+# 		follow.save()
+# 		follow_count = Follow.objects.filter(class_name=class_name).count()
+# 		data = {
+# 			'message': 'Following',
+# 			'follow_count': follow_count,
+# 		}
+# 		return JsonResponse(data)
+# follow = FollowView.as_view()
