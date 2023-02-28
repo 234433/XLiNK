@@ -124,11 +124,17 @@ def community(request, name):
 	current_user = request.GET.get('user')
 	logged_in_user = request.user.username
 	name = Group.objects.get(name=name)
+	user_followers = len(FollowersCount.objects.filter(user=name))
+	user_following = len(FollowersCount.objects.filter(follower=current_user))
+	print(user_followers)
+	print(user_following)
 	template  = loader.get_template('class.html')
 	context = {
 		'community': name,
 		'current_user': current_user,
 		'logged_in_user': logged_in_user,
+		'user_followers': user_followers,
+		'user_following ': user_following,
 	}
 	return HttpResponse(template.render(context, request))
 def follow_count(request):
@@ -139,7 +145,7 @@ def follow_count(request):
 		if value == 'follow':
 			followers_cnt = FollowersCount.objects.create(user=user, follower=follower)
 			followers_cnt.save()
-	
+		return redirect('/community/'+ user)
 def class_request(request):
 	if request.method == "POST":
 		form = ClassCreateForm(request.POST)

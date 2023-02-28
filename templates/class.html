@@ -184,7 +184,7 @@
 
 }
 .tab2-group{
-    margin-top: 95px; 
+    margin-top: 145px; 
     display: flex; 
     width: 500px;
     margin-left: 55px;
@@ -324,7 +324,7 @@
 .class_post_field{
     border-radius: 10px;
     margin-left: 15px;
-    margin-top: 25px;
+    margin-top: 45px;
     width: 550px;
     height: 125px;
     background: white;
@@ -473,7 +473,7 @@ transition: all 0.2s;
     background: white;
     margin-left: 5px;
     width: 598px;
-    height:230px;
+    height:280px;
     {% comment %} width: 630px;
     height: 150px; {% endcomment %}
 }
@@ -609,6 +609,24 @@ font-size: 15px;
     background: black;
     margin-left: 15px;
     margin-top: 15px;
+}
+.followcount{
+    margin-top: -35px;
+    display: flex;
+    margin-left: 20px;
+
+}
+.followerscount{
+    margin-top: -30px;
+    display: flex;
+    margin-left: 20px;
+}
+.created_date{
+    margin-left: -270px;
+    margin-top: -37.5px;
+}
+.followandfollower{
+    color: rgb(155, 155, 155);
 }
     </style>
 </head>
@@ -765,6 +783,16 @@ font-size: 15px;
                                             <b>
                                                 <div>{{community.explain | linebreaks}}</div>
                                             </b>
+                                            <small>
+                                                <span>
+                                                    <div style='margin-left: 20px; margin-top: -30px; color: rgb(155, 155, 155);'>Created dates:</div>
+                                                    <div class="created_date"><b>{{community.created_at | linebreaks}}</b></div>
+                                                </span>
+                                            </small>
+                                            <ul>
+                                                {% comment %} <li class="followcount"><span>{{user_following}}</span><div class="followandfollower">following</div></li> {% endcomment %}
+                                                <li class="followerscount"><span><b>{{user_followers}}</b></span><div class="followandfollower">followers</div></li>
+                                            </ul>
                                         </div>
                                     </small>
                                 </div>

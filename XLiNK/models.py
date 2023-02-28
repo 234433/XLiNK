@@ -59,6 +59,7 @@ class Group(models.Model):
     category = models.ForeignKey(Category, verbose_name="ジャンル", on_delete=models.PROTECT)
     backimage = models.ImageField(upload_to='media/', verbose_name="BackImage")
     explain = models.TextField(max_length=180,blank=True, verbose_name="explain")
+    created_at = models.DateField(null=True ,auto_now_add=True, blank=True, verbose_name='作成日')
     def __str__(self):
         return str(self.name)
     class Meta:
