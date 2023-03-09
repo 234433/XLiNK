@@ -126,6 +126,15 @@ def community(request, name):
 	name = Group.objects.get(name=name)
 	user_followers = len(FollowersCount.objects.filter(user=name))
 	user_following = len(FollowersCount.objects.filter(follower=current_user))
+	user_followers0 = FollowersCount.objects.filter(user=name)
+	user_followers1 = []
+	for i in user_followers0:
+		user_followers0 = i.follower
+		user_followers1.append(user_followers0)
+	if logged_in_user in user_followers1:
+		follow_button_value = 'unfollow'
+	else:
+		follow_button_value = 'follow'
 	print(user_followers)
 	print(user_following)
 	template  = loader.get_template('class.html')
@@ -135,6 +144,7 @@ def community(request, name):
 		'logged_in_user': logged_in_user,
 		'user_followers': user_followers,
 		'user_following ': user_following,
+		'follow_button_value': follow_button_value,
 	}
 	return HttpResponse(template.render(context, request))
 def follow_count(request):
@@ -145,7 +155,44 @@ def follow_count(request):
 		if value == 'follow':
 			followers_cnt = FollowersCount.objects.create(user=user, follower=follower)
 			followers_cnt.save()
+		else:
+			followers_cnt = FollowersCount.objects.get(user=user, follower=follower)
+			followers_cnt.delete()
 		return redirect('/community/'+ user)
+def groups(request):
+	groups = Group.objects.order_by("_manager_name")[:1000]
+	template = loader.get_template("class.html")
+	context  = {
+		'groups': groups
+	}
+	return HttpResponse(template.render(context, request))
+def group(request, pk):
+	group = Group.objects.get(pk=pk)
+	current_user = request.GET.get('user')
+	group_manager = request.GET.get('manager_name')
+	logged_in_user = request.user.username
+	user_followers = len(FollowersCount.objects.filter(user=group))
+	user_following = len(FollowersCount.objects.filter(follower=group_manager))
+	user_followers0 = FollowersCount.objects.filter(user=current_user)
+	user_followers1 = []
+	for i in user_followers0:
+		user_followers0 = i.follower
+		user_followers1.append(user_followers0)
+	if logged_in_user in user_followers1:
+		follow_button_value = 'unfollow'
+	else:
+		follow_button_value = 'follow'
+	print(user_following)
+	template  = loader.get_template('manager.html')
+	context = {
+		'group': group,
+		'current_user': current_user,
+		'logged_in_user': logged_in_user,
+		'user_followers': user_followers,
+		'user_following ': user_following,
+		'follow_button_value': follow_button_value,
+	}
+	return HttpResponse(template.render(context, request))
 def class_request(request):
 	if request.method == "POST":
 		form = ClassCreateForm(request.POST)
@@ -175,20 +222,6 @@ class CreateClassView(generic.CreateView):
 		xlink_obj['manager_name'] = self.request.user
 		return xlink_obj
 
-def groups(request):
-	groups = Group.objects.order_by("_manager_name")[:1000]
-	template = loader.get_template("class.html")
-	context  = {
-		'groups': groups
-	}
-	return HttpResponse(template.render(context, request))
-def group(request, pk):
-	group = Group.objects.get(pk=pk)
-	template  = loader.get_template('manager.html')
-	context = {
-		'group': group
-	}
-	return HttpResponse(template.render(context, request))
 class IndexView(ListView):
 	model = Group
 	template_name = "home.html"

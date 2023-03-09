@@ -775,8 +775,13 @@ font-size: 15px;
                                         {% csrf_token %}
                                         <input type="hidden" name="user" value="{{community}}"readonly/>
                                         <input type="hidden" name="follower" value="{{user.username}}" readonly/>
+                                        {% if follow_button_value == 'follow' %}
                                         <input type="hidden" name="value" value="follow" readonly/>
-                                        <button type="submit">+Follow<div style="display:none;">{{user.username}}</div></button>
+                                        <button type="submit">Follow<div style="display:none;">{{user.username}}</div></button>
+                                        {% else %}
+                                        <input type="hidden" name="value" value="unfollow" readonly/>
+                                        <button type="submit">Unfollow<div style="display:none;">{{user.username}}</div></button>
+                                        {% endif %}
                                       </form>
                                     <small>
                                         <div class="class_info">
